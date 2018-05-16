@@ -1,7 +1,8 @@
 import React from 'react';
+
 import './header.css';
 
-export default function Header(props) {
+export default function Header() {
 	return (
 		<header role="banner">
 	      <nav role="navagation">
@@ -14,7 +15,7 @@ export default function Header(props) {
 	            <a href="#"><i className="fas fa-clipboard-list"></i></a>
 	          </li>
 	          <li>
-	            <a href="#"><img className="userImage" src="https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg" alt="User name"></a>
+	            <a href="#"><img className="userImage" src="https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg" alt="User name" /></a>
 	          </li>
 	        </ul>
 	      </nav>
