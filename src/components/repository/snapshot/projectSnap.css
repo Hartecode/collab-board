@@ -1,0 +1,29 @@
+.projectSnapShot {
+  border: 2px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.projectSnapShotTitle {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.projectSnapShotDec {
+  width: 100%;
+}
+
+.projectSnapShotRole {
+  width: 50%;
+  font-weight: bold;
+}
+
+.projectSnapShotCollabs {
+  width: 50%;
+  text-align: right;
+  font-weight: bold;
+}
