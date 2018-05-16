@@ -1,0 +1,29 @@
+header {
+  border-bottom: 2px solid black;
+  height: 80px;
+}
+
+.navLinkContainer {
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+}
+
+.navLinkContainer > li {
+  box-sizing: border-box;
+  width: 25%;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 50px;
+}
+
+.navLinkContainer li a:visited, .navLinkContainer li a {
+  text-decoration: none;
+  color: black;
+}
+
+.userImage {
+  width: 55px;
+  border-radius: 50%;
+}
