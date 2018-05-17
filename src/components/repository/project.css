@@ -1,0 +1,42 @@
+.container {
+  padding: 10px;
+}
+
+h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.pageTilte {
+  text-align: center;
+}
+
+.projectTeam{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.userThumpnail{
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.collabList{
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projectJoin {
+  width: 100%;
+  height: 35px;
+  border: 2px solid black;
+  font-size: 29px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+}
