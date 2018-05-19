@@ -1,0 +1,35 @@
+.userThumpnail {
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.projectRequests {
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.request {
+  border-top: 2px solid black;
+  border-bottom: 2px soild black;
+}
+
+.requestUser {
+  display: flex;
+}
+
+.requestElement {
+  width: 50%;
+}
+
+.requestButton {
+  border: 1px solid;
+  height: 30px;
+}
+
+.fa-minus, .fa-plus {
+  margin-right: 25%;
+  margin-left: 5px;
+}
