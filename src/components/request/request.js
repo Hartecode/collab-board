@@ -44,6 +44,10 @@ export default class Request extends React.Component {
 		}
 	}
 
+	exbandDetels(e) {
+
+	}
+
 	render() {
 		const requestlist = this.state.requests;
 		const list = requestlist.map( (obj, index) => 

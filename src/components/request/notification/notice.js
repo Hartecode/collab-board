@@ -1,9 +1,10 @@
 import React from 'react';
+import "./notice.css";
 
 export default function Notice(props){
 	return (
 		<li className="request" key={props.index}>
-	    	<h3 className="requestProjectTitle"><i className="fas fa-minus"></i>{props.projectName}</h3>
+	    	<h3 className="requestProjectTitle"><button>-</button>{props.projectName}</h3>
 	    	<div className="requestUser">
 	    		<div className="requestElement">
 	    			<a href="#"><img class="userThumpnail" src={props.avatarImgUrl} alt="User name" />
