@@ -145,8 +145,8 @@ export default class Board extends React.Component {
 			return repository.map((file, index) => {
 				let totalOfCollabs = file.collaborators.length;
 				let mainUserId = this.state.user.id;
-				let pending = (1 === file.pendingRequest.filter(req => req.userID === mainUserId).length) ? 'Pending': <button class="projectSnapShotJoin">Join Team</button>;
-				console.log(pending);
+				let pending = (1 === file.pendingRequest.filter(req => req.userID === mainUserId).length) ? 'Pending': <button className="projectSnapShotJoin">Join Team</button>;
+				console.log(index);
 				return <SnapShot 
 			        		index={index}
 			        		projectName={file.projectName}
