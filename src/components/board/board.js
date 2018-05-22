@@ -14,7 +14,7 @@ export default class Board extends React.Component {
 			},
 			repositories : [
 				{
-					index: 1,
+					id: 23434,
 					projectName: 'Project Name',
 					projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
 					projectLink: 'www.github.com/name/project',
@@ -29,7 +29,7 @@ export default class Board extends React.Component {
 					
 				},
 				{
-					index: 1,
+					id: 4447,
 					projectName: 'Project Name',
 					projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
 					projectLink: 'www.github.com/name/project',
@@ -53,7 +53,7 @@ export default class Board extends React.Component {
 					
 				},
 				{
-					index: 1,
+					id: 58976,
 					projectName: 'Project Name',
 					projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
 					projectLink: 'www.github.com/name/project',
@@ -77,7 +77,7 @@ export default class Board extends React.Component {
 					
 				},
 				{
-					index: 1,
+					id: 89898,
 					projectName: 'Project Name',
 					projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
 					projectLink: 'www.github.com/name/project',
@@ -101,13 +101,53 @@ export default class Board extends React.Component {
 					
 				},
 				{
-					index: 1,
+					id: 99999,
 					projectName: 'Project Name',
 					projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
 					projectLink: 'www.github.com/name/project',
 					ownerID: 66666,
 					ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
 					collaborators: [
+						{
+							userID: 5555,
+							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"http://www.todayifoundout.com/wp-content/uploads/2017/12/myspace-tom.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"http://www.todayifoundout.com/wp-content/uploads/2017/12/myspace-tom.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+						},
+						{
+							userID: 5555,
+							avatarImgUrl:"http://www.todayifoundout.com/wp-content/uploads/2017/12/myspace-tom.jpg"
+						},
 						{
 							userID: 64532,
 							avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
@@ -149,6 +189,7 @@ export default class Board extends React.Component {
 				console.log(index);
 				return <SnapShot 
 			        		index={index}
+			        		id={file.id}
 			        		projectName={file.projectName}
 			        		projectDec={file.projectDec}
 			 				userRole={pending}
