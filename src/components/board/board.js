@@ -186,10 +186,11 @@ export default class Board extends React.Component {
 				let totalOfCollabs = file.collaborators.length;
 				let mainUserId = this.state.user.id;
 				let pending = (1 === file.pendingRequest.filter(req => req.userID === mainUserId).length) ? 'Pending': <button className="projectSnapShotJoin">Join Team</button>;
-				console.log(index);
+
 				return <SnapShot 
-			        		index={index}
+			        		
 			        		id={file.id}
+			        		key={file.id}
 			        		projectName={file.projectName}
 			        		projectDec={file.projectDec}
 			 				userRole={pending}

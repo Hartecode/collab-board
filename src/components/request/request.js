@@ -8,7 +8,7 @@ export default class Request extends React.Component {
 		this.state = {
 			requests: [
 				{
-					id: 272877289921,
+					id: 272877921,
 					projectId: 387274874982,
 					projectName: 'Project Name',
 					ownerId: 445,
@@ -19,7 +19,7 @@ export default class Request extends React.Component {
 					status: 'Pending'
 				},
 				{
-					id: 272877289921,
+					id: 8345987,
 					projectId: 387274874982,
 					projectName: 'Project Name',
 					ownerId: 445,
@@ -30,7 +30,7 @@ export default class Request extends React.Component {
 					status: 'Pending'
 				},
 				{
-					id: 272877289921,
+					id: 890989080,
 					projectId: 387274874982,
 					projectName: 'Project Name',
 					ownerId: 445,
@@ -53,6 +53,7 @@ export default class Request extends React.Component {
 		const list = requestlist.map( (obj, index) => 
 					<Notice 
 						index={index}
+						key={obj.id}
 						projectName={obj.projectName}
 						avatarImgUrl={obj.avatarImgUrl}
 						requestDec={obj.requestDec}
