@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import LandingPage from '../landing/landing';
 import LogIn from '../access/login/login';
+import LogOut from '../access/logout/logout';
 import Header from '../header/header';
 import Dashboard from '../dashboard/dashboard';
 import Board from '../board/board';
@@ -20,6 +21,7 @@ export default function App() {
 				<Route path="/" render={(props) => (props.location.pathname !== "/" &&  props.location.pathname !== "/login") && <Header /> }/>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/login" component={LogIn} />
+				<Route exact path="/logout" component={LogOut} />
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/board" component={Board} />
 				<Route exact path="/project/:projectId" component={Project} />

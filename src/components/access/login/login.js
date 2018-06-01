@@ -12,11 +12,11 @@ export default class LogIn extends React.Component {
 		return (
 			<main className="container" role='main'>
 				<h1>Sign Up/ Sign In</h1>
-				<Link to='/dashboard'>
+				<a href="http://localhost:8080/auth/github">
 					<button className="loginBtn">
 						<i className="fab fa-github"></i> Github
 					</button>
-				</Link>
+				</a>
 			</main>
 		);
 	}

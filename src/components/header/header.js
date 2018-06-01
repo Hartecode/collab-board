@@ -18,7 +18,9 @@ export default function Header() {
 	        		<Link to="/board"><i className="fas fa-clipboard-list"></i></Link>
 	       		</li>
 	        	<li>
-	        		<a href="#"><img className="userImage" src="https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg" alt="User name" /></a>
+	        		<Link to="/logout">
+	        			<img className="userImage" src="https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg" alt="User name" />
+	        		</Link>
 	        	</li>
 	        </ul>
 	      </nav>

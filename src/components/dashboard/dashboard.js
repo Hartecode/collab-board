@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import SnapShot from '../repository/snapshot/projectSnap';
 import Profile from './profile';
 
@@ -52,3 +53,13 @@ export default class Dashboard extends React.Component {
 		);
 	}
 }
+
+Board.defaultProps = {
+    title: 'Board'
+};
+
+const mapStateToProps = state => ({
+    lists: state.lists
+});
+
+export default connect(mapStateToProps)(Board);
