@@ -12,8 +12,8 @@ export function Dashboard(props) {
 		if(userProjects.length > 0) {
 			return userProjects.map( project => {
 				let totalOfCollabs = project.collaborators.length;
-				let userRole = (project.ownerID === props.mainUser['_id'])? 'Owner' : 'Co-Collab';
-				console.log(props.mainUser['_id']);
+				let userRole = (project.ownerID === props.mainUser.id)? 'Owner' : 'Co-Collab';
+				console.log(props.mainUser.id);
 				return <SnapShot 
 			        		index={project.id}
 			        		key={project.id}

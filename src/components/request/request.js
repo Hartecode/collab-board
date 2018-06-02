@@ -19,7 +19,7 @@ export function Request(props) {
 				/>
 			);
 		} else {
-			<li><h2>No Requests</h2></li>
+			return <li><h3>No Requests</h3></li>
 		}
 	}
 		

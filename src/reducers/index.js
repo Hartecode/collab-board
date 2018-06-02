@@ -5,7 +5,7 @@ import {
 
 const initialState = {
     mainUser: {
-        _id: "5b0cc22a505ed30b390e87b6",
+        id: "5b0cc22a505ed30b390e87b6",
         __v: 0,
         avatarUrl: "https://avatars0.githubusercontent.com/u/20849740?v=4",
         email: "seanharte@live.com",
@@ -112,6 +112,167 @@ const initialState = {
             requestDec: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.",
             status: 'Pending'
         }
+    ],
+    boardRepo: [
+            {
+                id: 23434,
+                projectName: 'Project Name',
+                projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
+                projectLink: 'www.github.com/name/project',
+                ownerID: 66666,
+                ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+                collaborators: [],
+                pendingRequest: [
+                    {
+                        userID: 888888
+                    }
+                ]
+                
+            },
+            {
+                id: 4447,
+                projectName: 'Project Name',
+                projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
+                projectLink: 'www.github.com/name/project',
+                ownerID: 66666,
+                ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+                collaborators: [
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    }
+                ],
+                pendingRequest: [
+                    {
+                        userID: 888888
+                    }
+                ]
+                
+            },
+            {
+                id: 58976,
+                projectName: 'Project Name',
+                projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
+                projectLink: 'www.github.com/name/project',
+                ownerID: "5b0cc22a505ed30b390e87b6",
+                ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+                collaborators: [
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    }
+                ],
+                pendingRequest: [
+                    {
+                        userID: 888888
+                    }
+                ]
+                
+            },
+            {
+                id: 89898,
+                projectName: 'Project Name',
+                projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
+                projectLink: 'www.github.com/name/project',
+                ownerID: 66666,
+                ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+                collaborators: [
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    }
+                ],
+                pendingRequest: [
+                    {
+                        userID: "5b0cc22a505ed30b390e87b6"
+                    }
+                ]
+                
+            },
+            {
+                id: 99999,
+                projectName: 'Project Name',
+                projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
+                projectLink: 'www.github.com/name/project',
+                ownerID: 66666,
+                ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+                collaborators: [
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"http://www.todayifoundout.com/wp-content/uploads/2017/12/myspace-tom.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"http://www.todayifoundout.com/wp-content/uploads/2017/12/myspace-tom.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"http://www.todayifoundout.com/wp-content/uploads/2017/12/myspace-tom.jpg"
+                    },
+                    {
+                        userID: 64532,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    },
+                    {
+                        userID: 5555,
+                        avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                    }
+                ],
+                pendingRequest: [
+                    {
+                        userID: 888888
+                    }
+                ]
+                
+            }
     ]
 };
 
