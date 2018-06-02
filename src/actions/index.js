@@ -39,32 +39,34 @@ export const logOut = leave => ({
 
 // *** fetch the signed in user info ***
 export const FETCH_LOGIN_USER_SUCCESS = 'FETCH_LOGIN_USER_SUCCESS';
-export const fetchLoginUserSuccess = board => ({
+export const fetchLoginUserSuccess = user => ({
     type: FETCH_LOGIN_USER_SUCCESS,
     user
 });
 
-export const fetchBoard = () => dispatch => {
-    fetch(`${API_BASE_URL}/api/users`)
+export const fetchLoginUser = () => dispatch => {
+    fetch(`http://localhost:8080/api/users/loginuser`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
+            console.log(res);
             return res.json();
         })
         .then( user => {
             dispatch(fetchLoginUserSuccess(user));
+            console.log(user);
         });
 }; 
 
 //*** festch All projects ****
 export const FETCH_PROJECTS_SUCCESS = 'FETCH_PROJECTS_SUCCESS';
-export const fetchProjectsSuccess = board => ({
+export const fetchProjectsSuccess = projects => ({
     type: FETCH_PROJECTS_SUCCESS,
-    board
+    projects
 });
 
-export const fetchBoard = () => dispatch => {
+export const fetchAllProjects= () => dispatch => {
     fetch(`${API_BASE_URL}/api/projects`)
         .then(res => {
             if (!res.ok) {
@@ -73,7 +75,7 @@ export const fetchBoard = () => dispatch => {
             return res.json();
         })
         .then(projects => {
-            dispatch(fetchProjectsSucces(projects));
+            dispatch(fetchProjectsSuccess(projects));
         });
 }; 
 
@@ -84,16 +86,16 @@ export const fetchRequestSuccess = request => ({
 	request
 });
 
-export const fetchBoard = () => dispatch => {
-    fetch(`${API_BASE_URL}/api/requests/${ID}`)
+export const fetchRequests = () => dispatch => {
+    fetch(`${API_BASE_URL}/api/requests/:id`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
             return res.json();
         })
-        .then(re => {
-            dispatch(fetchRequestSuccess(board));
+        .then(request => {
+            dispatch(fetchRequestSuccess(request));
         });
 }; 
 
@@ -104,8 +106,8 @@ export const fetchUserProjectsSuccess = projects => ({
 	projects
 });
 
-export const fetchBoard = () => dispatch => {
-    fetch(`${API_BASE_URL}/api/projects/own/${ID}`)
+export const fetchUserProjects = () => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects/own/:id`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
