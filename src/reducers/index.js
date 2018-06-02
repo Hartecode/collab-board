@@ -1,6 +1,4 @@
-import {
-    FETCH_LOGIN_USER_SUCCESS
-} from '../actions';
+import * as actions from '../actions';
 
 
 const initialState = {
@@ -17,7 +15,7 @@ const initialState = {
         {
             id: 23434,
             projectName: 'Project Name',
-            projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
+            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig. Beef swine frankfurter flank picanha ribeye meatball beef ribs leberkas filet mignon brisket tail. Short loin beef pig fatback. Beef porchetta buffalo strip steak burgdoggen short ribs.',
             projectLink: 'www.github.com/name/project',
             ownerID: "5b0cc22a505ed30b390e87b6",
             ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
@@ -56,13 +54,37 @@ const initialState = {
         {
             id: 58976,
             projectName: 'Project Name',
-            projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
+            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig. Beef swine frankfurter flank picanha ribeye meatball beef ribs leberkas filet mignon brisket tail. Short loin beef pig fatback. Beef porchetta buffalo strip steak burgdoggen short ribs..',
             projectLink: 'www.github.com/name/project',
             ownerID: 64532,
             ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
             collaborators: [
                 {
                     userID: "5b0cc22a505ed30b390e87b6",
+                    avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                },
+                {
+                    userID: 5555,
+                    avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
+                }
+            ],
+            pendingRequest: [
+                {
+                    userID: 888888
+                }
+            ]
+            
+        },
+        {
+            id: 44556647,
+            projectName: 'Project Name',
+            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig. Beef swine frankfurter flank picanha ribeye meatball beef ribs leberkas filet mignon brisket tail. Short loin beef pig fatback. Beef porchetta buffalo strip steak burgdoggen short ribs.',
+            projectLink: 'www.github.com/name/project',
+            ownerID: 66666,
+            ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+            collaborators: [
+                {
+                    userID: 5555,
                     avatarImgUrl:"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"
                 },
                 {
@@ -273,14 +295,22 @@ const initialState = {
                 ]
                 
             }
-    ]
+    ],
+    selectedProject: {
+        }
 };
 
 export default function collabBoardReducer(state = initialState, action) {
-    if(action.type === FETCH_LOGIN_USER_SUCCESS) {
+    if(action.type === actions.FETCH_LOGIN_USER_SUCCESS) {
         return Object.assign({}, state, {
-            mainUser: action.user
+            mainUser: action.mainUser
+        });
+    }
+    else if (action.type === actions.VIEW_PROJECT) {
+        return Object.assign({}, state, {
+            selectedProject: action.selectedProject
         });
     }
     return state
 };
+

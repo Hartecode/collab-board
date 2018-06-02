@@ -1,10 +1,15 @@
-'use strict';
 const API_BASE_URL = 'http://localhost:8080';
 
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const addProject = project => ({
 	type: ADD_PROJECT,
 	project
+});
+
+export const VIEW_PROJECT = 'VIEW_PROJECT'
+export const viewProject = selectedProject => ({
+    type: VIEW_PROJECT,
+    selectedProject
 });
 
 export const ADD_REQUEST = 'ADD_REQUEST';
@@ -39,25 +44,25 @@ export const logOut = leave => ({
 
 // *** fetch the signed in user info ***
 export const FETCH_LOGIN_USER_SUCCESS = 'FETCH_LOGIN_USER_SUCCESS';
-export const fetchLoginUserSuccess = user => ({
+export const fetchLoginUserSuccess = mainUser => ({
     type: FETCH_LOGIN_USER_SUCCESS,
-    user
+    mainUser
 });
 
-export const fetchLoginUser = () => dispatch => {
-    fetch(`http://localhost:8080/api/users/loginuser`)
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            console.log(res);
-            return res.json();
-        })
-        .then( user => {
-            dispatch(fetchLoginUserSuccess(user));
-            console.log(user);
-        });
-}; 
+// export const fetchLoginUser = () => dispatch => {
+//     fetch(`http://localhost:8080/api/users/loginuser`)
+//         .then(res => {
+//             if (!res.ok) {
+//                 return Promise.reject(res.statusText);
+//             }
+//             console.log(res);
+//             return res.json();
+//         })
+//         .then( user => {
+//             dispatch(fetchLoginUserSuccess(user));
+//             console.log(user);
+//         });
+// }; 
 
 //*** festch All projects ****
 export const FETCH_PROJECTS_SUCCESS = 'FETCH_PROJECTS_SUCCESS';

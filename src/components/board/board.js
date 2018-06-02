@@ -14,9 +14,9 @@ export function Board(props) {
 			let pending = (1 === file.pendingRequest.filter(req => req.userID === mainUserId).length) ? 'Pending': <button className="projectSnapShotJoin">Join Team</button>;
 
 			return <SnapShot 
-		        		
 		        		id={file.id}
 		        		key={file.id}
+			        	transferProject={file}
 		        		projectName={file.projectName}
 		        		projectDec={file.projectDec}
 		 				userRole={pending}

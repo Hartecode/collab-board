@@ -7,6 +7,11 @@ import { fetchLoginUser } from '../../actions';
 
 export function Dashboard(props) {
 
+	// componentDidMount() {
+ //        props.dispatch(fetchLoginUser())
+ //    }
+ 	
+
 	const displayUserRepo = () => {
 		const userProjects = props.userRepo;
 		if(userProjects.length > 0) {
@@ -15,8 +20,9 @@ export function Dashboard(props) {
 				let userRole = (project.ownerID === props.mainUser.id)? 'Owner' : 'Co-Collab';
 				console.log(props.mainUser.id);
 				return <SnapShot 
-			        		index={project.id}
+			        		id={project.id}
 			        		key={project.id}
+			        		transferProject={project}
 			        		projectName={project.projectName}
 			        		projectDec={project.projectDec}
 			        		userRole={userRole}
