@@ -1,76 +1,45 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Notice from './notification/notice';
 import './request.css';
 
-export default class Request extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			requests: [
-				{
-					id: 272877921,
-					projectId: 387274874982,
-					projectName: 'Project Name',
-					ownerId: 445,
-					requesterId: 333,
-					requesterName: 'user Name',
-					avatarImgUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
-					requestDec: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.",
-					status: 'Pending'
-				},
-				{
-					id: 8345987,
-					projectId: 387274874982,
-					projectName: 'Project Name',
-					ownerId: 445,
-					requesterId: 333,
-					requesterName: 'user Name',
-					avatarImgUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
-					requestDec: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.",
-					status: 'Pending'
-				},
-				{
-					id: 890989080,
-					projectId: 387274874982,
-					projectName: 'Project Name',
-					ownerId: 445,
-					requesterId: 333,
-					requesterName: 'user Name',
-					avatarImgUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
-					requestDec: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.",
-					status: 'Pending'
-				}
-			]
+export function Request(props) {
+
+	const requestlist = props.requests;
+
+	const list = () => {
+		if(requestlist.length > 0) {
+			return requestlist.map( (obj, index) => 
+				<Notice 
+					index={index}
+					key={obj.id}
+					projectName={obj.projectName}
+					avatarImgUrl={obj.avatarImgUrl}
+					requestDec={obj.requestDec}
+				/>
+			);
+		} else {
+			<li><h2>No Requests</h2></li>
 		}
 	}
-
-	exbandDetels(e) {
-
-	}
-
-	render() {
-		const requestlist = this.state.requests;
-		const list = requestlist.map( (obj, index) => 
-					<Notice 
-						index={index}
-						key={obj.id}
-						projectName={obj.projectName}
-						avatarImgUrl={obj.avatarImgUrl}
-						requestDec={obj.requestDec}
-					/>
-			);
+		
 
 
-		return (
-			<main role="main">
-		      <section>
-		        <h2 className="pageTilte">Collabs Requests</h2>
-		        <ul className="projectRequests" aria-live="assertive">
-		        	{list}
-		        </ul>
-		      </section>
-		    </main>
-		);
+	return (
+		<main role="main">
+	      <section>
+	        <h2 className="pageTilte">Collabs Requests</h2>
+	        <ul className="projectRequests" aria-live="assertive">
+	        	{list()}
+	        </ul>
+	      </section>
+	    </main>
+	);
 
-	}
 }
+
+const mapStateToProps = state => ({
+    requests: state.requests
+});
+
+export default connect(mapStateToProps)(Request);
