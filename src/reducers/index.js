@@ -296,8 +296,8 @@ const initialState = {
                 
             }
     ],
-    selectedProject: {
-        }
+    selectedProject: {},
+    githubRepo:{}
 };
 
 export default function collabBoardReducer(state = initialState, action) {

@@ -7,10 +7,7 @@ import { fetchLoginUser } from '../../actions';
 
 export function Dashboard(props) {
 
-	// componentDidMount() {
- //        props.dispatch(fetchLoginUser())
- //    }
- 	
+ 	props.dispatch(fetchLoginUser());
 
 	const displayUserRepo = () => {
 		const userProjects = props.userRepo;

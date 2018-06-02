@@ -49,20 +49,20 @@ export const fetchLoginUserSuccess = mainUser => ({
     mainUser
 });
 
-// export const fetchLoginUser = () => dispatch => {
-//     fetch(`http://localhost:8080/api/users/loginuser`)
-//         .then(res => {
-//             if (!res.ok) {
-//                 return Promise.reject(res.statusText);
-//             }
-//             console.log(res);
-//             return res.json();
-//         })
-//         .then( user => {
-//             dispatch(fetchLoginUserSuccess(user));
-//             console.log(user);
-//         });
-// }; 
+export const fetchLoginUser = () => dispatch => {
+    fetch(`http://localhost:8080/api/users/loginuser`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            console.log(res);
+            return res.json();
+        })
+        .then( user => {
+            dispatch(fetchLoginUserSuccess(user));
+            console.log(user);
+        });
+}; 
 
 //*** festch All projects ****
 export const FETCH_PROJECTS_SUCCESS = 'FETCH_PROJECTS_SUCCESS';
