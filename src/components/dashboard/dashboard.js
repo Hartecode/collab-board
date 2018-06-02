@@ -3,63 +3,54 @@ import {connect} from 'react-redux';
 import SnapShot from '../repository/snapshot/projectSnap';
 import Profile from './profile';
 
-export default class Dashboard extends React.Component {
-	constructor(props) {
-		super(props);
-		this .state = {
-			index: 1,
-			projectName: 'Project Name',
-			projectDec: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.',
-			userRole: 'Team Lead',
-			numberOfCollabs: 2
+import { fetchLoginUser } from '../../actions';
+
+export function Dashboard(props) {
+
+	const displayUserRepo = () => {
+		const userProjects = props.userRepo;
+		if(userProjects.length > 0) {
+			return userProjects.map( project => {
+				let totalOfCollabs = project.collaborators.length;
+				let userRole = (project.ownerID === props.mainUser['_id'])? 'Owner' : 'Co-Collab';
+				console.log(props.mainUser['_id']);
+				return <SnapShot 
+			        		index={project.id}
+			        		key={project.id}
+			        		projectName={project.projectName}
+			        		projectDec={project.projectDec}
+			        		userRole={userRole}
+			        		numberOfCollabs={totalOfCollabs}
+			        	/>
+			})
+		} else {
+			return <li><h2> There are no projects posted.</h2></li>
 		}
 	}
 
-	render() {
-		return (
-			<main role="main">
-		      <Profile 
-		      	avatarImgUrl={"https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg"}
-		      	userName={"User name"}
-		      	githubLink={"www.github.com"}
-		      />
-		      <section>
-		        <h2>Repository</h2>
-		        <ul className="userprojectlist" aria-live="assertive">
-		        	<SnapShot 
-		        		index={this.state.index}
-		        		projectName={this.state.projectName}
-		        		projectDec={this.state.projectDec}
-		        		userRole={this.state.userRole}
-		        		numberOfCollabs={this.state.numberOfCollabs}
-		        	/>
-		        	<SnapShot 
-		        		index={this.state.index}
-		        		projectName={this.state.projectName}
-		        		projectDec={this.state.projectDec}
-		        		userRole={this.state.userRole}
-		        		numberOfCollabs={this.state.numberOfCollabs}
-		        	/>
-		        	<SnapShot 
-		        		index={this.state.index}
-		        		projectName={this.state.projectName}
-		        		projectDec={this.state.projectDec}
-		        		userRole={'Co-Collab'}
-		        		numberOfCollabs={this.state.numberOfCollabs}
-		        	/>
-		        </ul>
-		      </section>
-		    </main>
-		);
-	}
+	return (
+		<main role="main">
+	      <Profile 
+	      	avatarImgUrl={props.mainUser.avatarUrl}
+	      	userName= {props.mainUser.username}
+	      	githubLink= {props.mainUser.githubProfileUrl}
+	      />
+	      <section>
+	        <h2>Repository</h2>
+	        <ul className="userprojectlist" aria-live="assertive">
+	        	{displayUserRepo()}
+	        </ul>
+	      </section>
+	    </main>
+	);
+	
 }
 
-Board.defaultProps = {
-    title: 'Board'
-};
+
 
 const mapStateToProps = state => ({
-    lists: state.lists
+    mainUser: state.mainUser,
+    userRepo: state.userRepo
 });
 
-export default connect(mapStateToProps)(Board);
+export default connect(mapStateToProps)(Dashboard);
