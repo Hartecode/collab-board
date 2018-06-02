@@ -77,6 +77,41 @@ const initialState = {
             ]
             
         }
+    ],
+    requests: [
+        {
+            id: 272877921,
+            projectId: 387274874982,
+            projectName: 'Project Name',
+            ownerId: 445,
+            requesterId: 333,
+            requesterName: 'user Name',
+            avatarImgUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+            requestDec: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.",
+            status: 'Pending'
+        },
+        {
+            id: 8345987,
+            projectId: 387274874982,
+            projectName: 'Project Name',
+            ownerId: 445,
+            requesterId: 333,
+            requesterName: 'user Name',
+            avatarImgUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+            requestDec: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.",
+            status: 'Pending'
+        },
+        {
+            id: 890989080,
+            projectId: 387274874982,
+            projectName: 'Project Name',
+            ownerId: 445,
+            requesterId: 333,
+            requesterName: 'user Name',
+            avatarImgUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
+            requestDec: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim justo eget aliquet efficitur. Curabitur finibus pellentesque fermentum. Aenean urna magna, maximus sed justo ac, ultrices laoreet odio. Curabitur hendrerit sollicitudin leo id convallis.",
+            status: 'Pending'
+        }
     ]
 };
 
