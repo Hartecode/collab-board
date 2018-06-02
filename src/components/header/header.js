@@ -1,25 +1,38 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import {Link} from 'react-router-dom';
 
 import './header.css';
 
-export default function Header() {
+export function Header(props) {
 	return (
 		<header role="banner">
 	      <nav role="navagation">
 	        <ul className="navLinkContainer">
 	        	<li>
-	        		<Link to='/dashboard'>CB</Link>
+	        		<Link to='/dashboard'>
+	        			CB
+	        		</Link>
 	        	</li>
 	        	<li>
-	        		<Link to="/request"><i className="fas fa-users"></i></Link>
+	        		<Link to="/request">
+	        			<i className="fas fa-users">
+	        			</i>
+	        		</Link>
 	        	</li>
 	        	<li>
-	        		<Link to="/board"><i className="fas fa-clipboard-list"></i></Link>
+	        		<Link to="/board">
+	        			<i className="fas fa-clipboard-list">
+	        			</i>
+	        		</Link>
 	       		</li>
 	        	<li>
 	        		<Link to="/logout">
-	        			<img className="userImage" src="https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg" alt="User name" />
+	        			<img className="userImage" 
+	        				src={props.mainUser.avatarUrl} 
+	        				alt={props.mainUser.username} 
+	        			/>
 	        		</Link>
 	        	</li>
 	        </ul>
@@ -27,3 +40,9 @@ export default function Header() {
 	    </header>
 	);
 }
+
+const mapStateToProps = state => ({
+    mainUser: state.mainUser,
+});
+
+export default connect(mapStateToProps)(Header);
