@@ -1,4 +1,9 @@
 
+header {
+  background-color: #2828a5;
+  height: 80px;
+}
+
 
 .navLinkContainer {
   margin: 0;
@@ -17,10 +22,35 @@
 
 .navLinkContainer li a:visited, .navLinkContainer li a {
   text-decoration: none;
-  color: black;
+  color: #ec965f;
 }
 
 .userImage {
   width: 55px;
   border-radius: 50%;
+}
+
+@media only screen and (min-width: 715px) {
+  header {
+    height: 50px;
+  }
+
+  .navLinkContainer {
+    justify-content: space-between;
+  }
+
+  .navLinkContainer > li {
+    font-size: 30px;
+    width: 10%;
+  }
+
+  .navLinkContainer > li:first-child {
+    width: 70%;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .userImage {
+    width: 31px;
+  }
 }

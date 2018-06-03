@@ -1,8 +1,18 @@
+a {
+	color: #2828a5;
+	text-decoration: none;
 
-header {
-  border-bottom: 2px solid black;
-  height: 80px;
 }
+
+a:visited {
+	color: #2828a5;
+	}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
 /*-----------*/
 
 /*-----------*/
@@ -12,3 +22,7 @@ header {
   padding-left: 0;
 }
 
+.mainContainer {
+	margin: auto;
+	max-width: 1000px;
+}
