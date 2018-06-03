@@ -15,7 +15,7 @@ const initialState = {
         {
             id: 23434,
             projectName: 'Project Name',
-            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig. Beef swine frankfurter flank picanha ribeye meatball beef ribs leberkas filet mignon brisket tail. Short loin beef pig fatback. Beef porchetta buffalo strip steak burgdoggen short ribs.',
+            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig.',
             projectLink: 'www.github.com/name/project',
             ownerID: "5b0cc22a505ed30b390e87b6",
             ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
@@ -54,7 +54,7 @@ const initialState = {
         {
             id: 58976,
             projectName: 'Project Name',
-            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig. Beef swine frankfurter flank picanha ribeye meatball beef ribs leberkas filet mignon brisket tail. Short loin beef pig fatback. Beef porchetta buffalo strip steak burgdoggen short ribs..',
+            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig. ',
             projectLink: 'www.github.com/name/project',
             ownerID: 64532,
             ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",
@@ -78,7 +78,7 @@ const initialState = {
         {
             id: 44556647,
             projectName: 'Project Name',
-            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig. Beef swine frankfurter flank picanha ribeye meatball beef ribs leberkas filet mignon brisket tail. Short loin beef pig fatback. Beef porchetta buffalo strip steak burgdoggen short ribs.',
+            projectDec: 'Bacon ipsum dolor amet fatback landjaeger turkey bacon tri-tip strip steak sirloin ribeye spare ribs t-bone cow. Beef ribs bacon biltong salami, sirloin tri-tip short loin kevin rump sausage. Kevin pancetta spare ribs boudin pork belly meatloaf tail bresaola jowl drumstick beef short loin tongue pork chop pig.',
             projectLink: 'www.github.com/name/project',
             ownerID: 66666,
             ownerAvatarUrl: "https://uploads.teamtreehouse.com/production/profile-photos/1179602/thumb_profile.jpg",

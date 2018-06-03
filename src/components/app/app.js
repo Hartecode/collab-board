@@ -17,7 +17,7 @@ export default function App() {
 
 	return (
 		<Router>
-			<div>
+			<div className="mainContainer">
 				<Route path="/" render={(props) => (props.location.pathname !== "/" &&  props.location.pathname !== "/login") && <Header /> }/>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/login" component={LogIn} />

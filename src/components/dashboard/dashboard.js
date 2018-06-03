@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SnapShot from '../repository/snapshot/projectSnap';
 import Profile from './profile';
-
+import './dashboard.css';
 import { fetchLoginUser } from '../../actions';
 
 export function Dashboard(props) {
@@ -32,7 +32,7 @@ export function Dashboard(props) {
 	}
 
 	return (
-		<main role="main">
+		<main className="dashboardContainer" role="main">
 	      <Profile 
 	      	avatarImgUrl={props.mainUser.avatarUrl}
 	      	userName= {props.mainUser.username}
