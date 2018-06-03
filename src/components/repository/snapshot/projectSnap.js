@@ -11,6 +11,10 @@ export function SnapShot(props) {
 		props.dispatch(viewProject(projectInfo));
 	}
 
+	const proDec = props.projectDec;
+
+	const projectTrimDec = (proDec.lenght <= 146) ? proDec.substring(0, 146): proDec.substring(0, 143) +'...';
+
 	return (
 		<li className="projectSnapShot" >
 	    	<h3 className="projectSnapShotTitle">
@@ -19,7 +23,7 @@ export function SnapShot(props) {
 	    		</Link>
 	    	</h3>
 	        <p className="projectSnapShotDec">
-	        	{props.projectDec}
+	        	{projectTrimDec}
 	        </p>
 	        <div className="projectSnapShotRole">
 	        	{props.userRole}
