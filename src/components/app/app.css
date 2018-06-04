@@ -1,3 +1,8 @@
+body {
+	font-family: 'Arimo', sans-serif;
+	color: #383232;
+}
+
 a {
 	color: #2828a5;
 	text-decoration: none;

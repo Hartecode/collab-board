@@ -25,7 +25,7 @@ export function Project(props) {
 
 	return (
 		<main role="main">
-	      <section className="container">
+	      <section className="proContainer">
 	        <h2 className="pageTilte">
 	        	{props.selectedProject.projectName}
 	        </h2>

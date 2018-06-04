@@ -1,11 +1,21 @@
 .container {
-  border: 1px solid black;
-  background: #d0cdcd;
-  margin-top: 100px;
+	background-color: #2828a5;
+	color: #ec965f;
+	margin: auto;
+	margin-top: 100px;
+	height: 300px;
+	width: 300px;
+	text-align: center;
+	padding: 10px;
+}
+
+.signTitle {
+	margin-bottom: 170px;
 }
 
 .loginBtn {
-  font-size: 20px;
-  width: 100%;
-  padding: 5px;
+	background-color: white;
+	font-size: 20px;
+	width: 100%;
+	padding: 5px;
 }

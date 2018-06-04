@@ -1,10 +1,29 @@
+
+
 .LandingContainer {
   text-align: center;
   margin-top: 100px;
+  padding: 10px;
 }
 
+
 .startButton {
-  font-size: 20px;
-  width: 100%;
-  padding: 5px;
+  width: 300px;
+  height: 35px;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #2828a5;
+  color: #ec965f;
+  display: block;
+  font-size: 29px;
+  border: 1px solid #7d7d7d;
+}
+
+.startButton:hover {
+  box-shadow: 0px 0px 3px 1px #7d7d7d;
+}
+
+.startButton:active {
+  background-color: #ec965f;
+  color: #2828a5;
 }

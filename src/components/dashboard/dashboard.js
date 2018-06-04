@@ -39,7 +39,7 @@ export function Dashboard(props) {
 	      	githubLink= {props.mainUser.githubProfileUrl}
 	      />
 	      <section>
-	        <h2>Repository</h2>
+	        <h2 className="repoTitle">Repository</h2>
 	        <ul className="userprojectlist" aria-live="assertive">
 	        	{displayUserRepo()}
 	        </ul>

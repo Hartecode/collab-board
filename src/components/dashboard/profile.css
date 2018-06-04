@@ -6,6 +6,7 @@
 
 .profileElements {
 	box-sizing: border-box;
+	overflow: hidden;
   	width: 50%;
   	padding: 10px;
 }
