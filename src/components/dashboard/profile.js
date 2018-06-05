@@ -15,7 +15,7 @@ export class Profile extends React.Component  {
 	}
 
 	componentDidMount() {
-		fetch("https://api.github.com/users/Hartecode/repos")
+		fetch(this.props.mainUser.githubRepos)
 	        .then(res => {
 	            if (!res.ok) {
 	                return Promise.reject(res.statusText);
