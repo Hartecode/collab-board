@@ -311,6 +311,12 @@ export default function collabBoardReducer(state = initialState, action) {
             selectedProject: action.selectedProject
         });
     }
+    else if (action.type === actions.POST_NEW_PROJECTS_SUCCESS) {
+        return Object.assign({}, state, {
+            userRepo: [...initialState.userRepo, action.userRepo]
+        });
+    }
+
     return state
 };
 

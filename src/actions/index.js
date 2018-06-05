@@ -1,11 +1,5 @@
 const API_BASE_URL = 'http://localhost:8080';
 
-export const ADD_PROJECT = 'ADD_PROJECT';
-export const addProject = project => ({
-	type: ADD_PROJECT,
-	project
-});
-
 export const VIEW_PROJECT = 'VIEW_PROJECT'
 export const viewProject = selectedProject => ({
     type: VIEW_PROJECT,
@@ -106,9 +100,9 @@ export const fetchRequests = () => dispatch => {
 
 // **** fetch the user's projects ****
 export const FETCH_USER_PROJECTS_SUCCESS = 'FETCH_USER_PROJECTS_SUCCESS';
-export const fetchUserProjectsSuccess = projects => ({
+export const fetchUserProjectsSuccess = userRepo => ({
 	type: FETCH_USER_PROJECTS_SUCCESS,
-	projects
+	userRepo
 });
 
 export const fetchUserProjects = () => dispatch => {
@@ -126,23 +120,30 @@ export const fetchUserProjects = () => dispatch => {
 
 // **** Post a New Project ***
 export const POST_NEW_PROJECTS_SUCCESS = 'POST_NEW_PROJECTS_SUCCESS';
-export const postNewProjectSuccess = project => ({
-	type: postNewProjectSuccess,
-	project
+export const postNewProjectSuccess = userRepo => ({
+	type: POST_NEW_PROJECTS_SUCCESS,
+	userRepo
 });
 
-// export const fetchBoard = () => dispatch => {
-//     fetch(`${API_BASE_URL}/api/projects`)
-//         .then(res => {
-//             if (!res.ok) {
-//                 return Promise.reject(res.statusText);
-//             }
-//             return res.json();
-//         })
-//         .then(board => {
-//             dispatch(fetchProjectsSucces(board));
-//         });
-// }; 
+export const fetchPostProject = (data) => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then( newProject => {
+            dispatch(postNewProjectSuccess(newProject));
+        });
+}; 
 
 export const PUT_COLLABORATOR_SUCCESS = 'PUT_COLLABORATOR_SUCCESS';
 export const putCollaboratorSuccess = collab => ({
