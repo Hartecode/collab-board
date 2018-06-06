@@ -22,7 +22,7 @@ export default function App() {
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/login" component={LogIn} />
 				<Route exact path="/logout" component={LogOut} />
-				<Route exact path="/dashboard" component={Dashboard} />
+				<Route exact path="/dashboard/:userId" component={Dashboard} />
 				<Route exact path="/board" component={Board} />
 				<Route exact path="/project/:projectId" component={Project} />
 				<Route exact path="/request" component={Request} />

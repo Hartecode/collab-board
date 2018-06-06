@@ -7,29 +7,12 @@ export class Profile extends React.Component  {
 	    super(props);
 	    this.state = {
 	    	addProject: false,
-	    	githubRepo: null,
 	    	selectValue: ''
 	    };
 	    this.onClickPro = this.onClickPro.bind(this);
 	    this.onSubmit = this.onSubmit.bind(this);
+	    this.onChange = this.onChange.bind(this);
 	}
-
-	componentDidMount() {
-		fetch(this.props.mainUser.githubRepos)
-	        .then(res => {
-	            if (!res.ok) {
-	                return Promise.reject(res.statusText);
-	            }
-	            console.log(res);
-	            return res.json();
-	        })
-	        .then( repo => {
-	        	this.setState({
-	        		githubRepo: repo
-	        	});
-	        });
-	}
-
 
 	onClickPro() {
 		this.setState( prevState => ({
@@ -39,24 +22,23 @@ export class Profile extends React.Component  {
 
 	onSubmit(e) {
 		e.preventDefault();
-		console.log(`submited ${e.target.value} `)
+		console.log(`submited ${e.target.repo.value} `)
+		
 	}
 
 	onChange(e) {
 		this.setState({
-			selectValue:e.target.value
+			selectValue: e.target.value
 		})
 	}
 
 	render() {
 
 		const listOfRepo = () => {
-			const repos = this.state.githubRepo;
-			if(this.state.githubRepo) {
-				return repos.map( pro => {
-					return <option key={pro.id} value={pro.name}>{pro.name}</option>
-				});
-			}
+			const repos = this.props.githubRepo;
+			return repos.map( pro => {
+				return <option key={pro.id} value={pro.name}>{pro.name}</option>
+			});
 		}
 
 		return (
@@ -70,7 +52,7 @@ export class Profile extends React.Component  {
 				    </div>
 				    <div className="profileElements">
 				    	<p>
-				    		{this.props.mainUser.userName}
+				    		{this.props.mainUser.username}
 				    	</p>
 				    	<p>
 				    		<a href={this.props.mainUser.githubLink}>
@@ -107,6 +89,7 @@ export class Profile extends React.Component  {
 
 const mapStateToProps = state => ({
     mainUser: state.mainUser,
+    githubRepo: state.githubRepo
 });
 
 export default connect(mapStateToProps)(Profile);
