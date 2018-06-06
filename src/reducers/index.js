@@ -3,13 +3,12 @@ import * as actions from '../actions';
 
 const initialState = {
     mainUser: {
-        id: "5b0cc22a505ed30b390e87b6",
-        __v: 0,
-        avatarUrl: "https://avatars0.githubusercontent.com/u/20849740?v=4",
-        email: "seanharte@live.com",
-        githubProfileUrl: "https://github.com/Hartecode",
-        githubRepos: "https://api.github.com/users/Hartecode/repos",
-        username: "Hartecode"
+        id: null,
+        avatarUrl: null,
+        email: null,
+        githubProfileUrl: null,
+        githubRepos: null,
+        username: null
     },
     userRepo: [
         {
@@ -297,7 +296,7 @@ const initialState = {
             }
     ],
     selectedProject: {},
-    githubRepo:{}
+    githubRepo:[]
 };
 
 export default function collabBoardReducer(state = initialState, action) {
@@ -305,15 +304,29 @@ export default function collabBoardReducer(state = initialState, action) {
         return Object.assign({}, state, {
             mainUser: action.mainUser
         });
-    }
-    else if (action.type === actions.VIEW_PROJECT) {
+    } else if (action.type === actions.FETCH_GITHUB_REPO_SUCCES) {
         return Object.assign({}, state, {
-            selectedProject: action.selectedProject
+            githubRepo: action.githubRepo
+        });
+    }
+    else if (action.type === actions.FETCH_USER_PROJECTS_SUCCESS) {
+        return Object.assign({}, state, {
+            userRepo: action.userRepo
         });
     }
     else if (action.type === actions.POST_NEW_PROJECTS_SUCCESS) {
         return Object.assign({}, state, {
             userRepo: [...initialState.userRepo, action.userRepo]
+        });
+    }
+    else if (action.type === actions.FETCH_REQUEST_SUCCESS) {
+        return Object.assign({}, state, {
+            requests: action.requests
+        });
+    }
+    else if (action.type === actions.FETCH_BOARD_SUCCESS) {
+        return Object.assign({}, state, {
+            boardRepo: action.boardRepo
         });
     }
 

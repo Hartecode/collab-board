@@ -1,40 +1,5 @@
 const API_BASE_URL = 'http://localhost:8080';
 
-export const VIEW_PROJECT = 'VIEW_PROJECT'
-export const viewProject = selectedProject => ({
-    type: VIEW_PROJECT,
-    selectedProject
-});
-
-export const ADD_REQUEST = 'ADD_REQUEST';
-export const addRequest = request => ({
-	type: ADD_REQUEST,
-	request
-});
-
-export const APPROVE_REQUEST = 'APPROVE_REQUEST';
-export const approveRequest = request => ({
-	type: APPROVE_REQUEST,
-	request
-});
-
-export const DENY_REQUEST = 'DENY_REQUEST';
-export const denyRequest = request => ({
-	type: DENY_REQUEST,
-	request
-});
-
-export const LOG_IN = 'LOG_IN';
-export const logIn = access => ({
-	type: LOG_IN,
-	access
-});
-
-export const LOG_OUT = 'LOG_OUT';
-export const logOut = leave => ({
-	type: LOG_OUT,
-	leave
-});
 
 // *** fetch the signed in user info ***
 export const FETCH_LOGIN_USER_SUCCESS = 'FETCH_LOGIN_USER_SUCCESS';
@@ -43,8 +8,29 @@ export const fetchLoginUserSuccess = mainUser => ({
     mainUser
 });
 
-export const fetchLoginUser = () => dispatch => {
-    fetch(`http://localhost:8080/api/users/loginuser`)
+export const fetchLoginUser = (id) => dispatch => {
+    fetch(`${API_BASE_URL}/api/users/loginuser/${id}`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then( user => {
+            dispatch(fetchLoginUserSuccess(user));
+            dispatch(fetchGithubRepo(user.githubRepos));
+        });
+}; 
+
+// **** fetch the github repo ****
+export const FETCH_GITHUB_REPO_SUCCES = 'FETCH_GITHUB_REPO_SUCCES';
+export const fetchGithubRepoSuccess = githubRepo => ({
+    type: FETCH_GITHUB_REPO_SUCCES,
+    githubRepo
+});
+
+export const fetchGithubRepo = (url) => dispatch => {
+    fetch(url)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -52,21 +38,20 @@ export const fetchLoginUser = () => dispatch => {
             console.log(res);
             return res.json();
         })
-        .then( user => {
-            dispatch(fetchLoginUserSuccess(user));
-            console.log(user);
+        .then( repo => {
+            dispatch(fetchGithubRepoSuccess(repo));
         });
-}; 
+};
 
-//*** festch All projects ****
-export const FETCH_PROJECTS_SUCCESS = 'FETCH_PROJECTS_SUCCESS';
-export const fetchProjectsSuccess = projects => ({
-    type: FETCH_PROJECTS_SUCCESS,
-    projects
+// **** fetch the user's projects ****
+export const FETCH_USER_PROJECTS_SUCCESS = 'FETCH_USER_PROJECTS_SUCCESS';
+export const fetchUserProjectsSuccess = userRepo => ({
+    type: FETCH_USER_PROJECTS_SUCCESS,
+    userRepo
 });
 
-export const fetchAllProjects= () => dispatch => {
-    fetch(`${API_BASE_URL}/api/projects`)
+export const fetchUserProjects = (id) => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects/own/${id}`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -74,19 +59,19 @@ export const fetchAllProjects= () => dispatch => {
             return res.json();
         })
         .then(projects => {
-            dispatch(fetchProjectsSuccess(projects));
+            dispatch(fetchUserProjectsSuccess(projects));
         });
 }; 
 
-// **** fetch all user requests ****
+// **** fetch all login user requests ****
 export const FETCH_REQUEST_SUCCESS = 'FETCH_REQUEST_SUCCESS';
 export const fetchRequestSuccess = request => ({
-	type: FETCH_REQUEST_SUCCESS,
-	request
+    type: FETCH_REQUEST_SUCCESS,
+    request
 });
 
-export const fetchRequests = () => dispatch => {
-    fetch(`${API_BASE_URL}/api/requests/:id`)
+export const fetchRequests = (id) => dispatch => {
+    fetch(`${API_BASE_URL}/api/requests/${id}`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -98,15 +83,15 @@ export const fetchRequests = () => dispatch => {
         });
 }; 
 
-// **** fetch the user's projects ****
-export const FETCH_USER_PROJECTS_SUCCESS = 'FETCH_USER_PROJECTS_SUCCESS';
-export const fetchUserProjectsSuccess = userRepo => ({
-	type: FETCH_USER_PROJECTS_SUCCESS,
-	userRepo
+// *** festch All Board Projects ****
+export const FETCH_BOARD_SUCCESS = 'FETCH_BOARD_SUCCESS';
+export const fetchBoardSuccess = boardRepo => ({
+    type: FETCH_BOARD_SUCCESS,
+    boardRepo
 });
 
-export const fetchUserProjects = () => dispatch => {
-    fetch(`${API_BASE_URL}/api/projects/own/:id`)
+export const fetchFullBoard= () => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -114,9 +99,12 @@ export const fetchUserProjects = () => dispatch => {
             return res.json();
         })
         .then(projects => {
-            dispatch(fetchUserProjectsSuccess(projects));
+            dispatch(fetchBoardSuccess(projects));
         });
 }; 
+
+
+
 
 // **** Post a New Project ***
 export const POST_NEW_PROJECTS_SUCCESS = 'POST_NEW_PROJECTS_SUCCESS';
@@ -182,3 +170,39 @@ export const deleteRequestSuccess = request => ({
 //             dispatch(fetchProjectsSucces(board));
 //         });
 // }; 
+
+export const VIEW_PROJECT = 'VIEW_PROJECT'
+export const viewProject = selectedProject => ({
+    type: VIEW_PROJECT,
+    selectedProject
+});
+
+export const ADD_REQUEST = 'ADD_REQUEST';
+export const addRequest = request => ({
+    type: ADD_REQUEST,
+    request
+});
+
+export const APPROVE_REQUEST = 'APPROVE_REQUEST';
+export const approveRequest = request => ({
+    type: APPROVE_REQUEST,
+    request
+});
+
+export const DENY_REQUEST = 'DENY_REQUEST';
+export const denyRequest = request => ({
+    type: DENY_REQUEST,
+    request
+});
+
+export const LOG_IN = 'LOG_IN';
+export const logIn = access => ({
+    type: LOG_IN,
+    access
+});
+
+export const LOG_OUT = 'LOG_OUT';
+export const logOut = leave => ({
+    type: LOG_OUT,
+    leave
+});
