@@ -8,7 +8,8 @@ import { fetchLoginUser } from '../../actions';
 export class Dashboard extends React.Component {
 	
 	componentDidMount() {
-		this.props.dispatch(fetchLoginUser());
+		console.log(this.props);
+		this.props.dispatch(fetchLoginUser(this.props.match.params.userId));
 	}
  	
  	render() {
