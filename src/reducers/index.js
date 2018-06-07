@@ -295,7 +295,9 @@ const initialState = {
                 
             }
     ],
-    selectedProject: {},
+    selectedProject: {
+        
+    },
     githubRepo:[]
 };
 
@@ -322,6 +324,19 @@ export default function collabBoardReducer(state = initialState, action) {
     else if (action.type === actions.FETCH_REQUEST_SUCCESS) {
         return Object.assign({}, state, {
             requests: action.requests
+        });
+    }
+    else if (action.type === actions.FETCH_DELETE_REQUEST_SUCCESS) {
+        const userRequests = initialState.requests;
+        const requestId = action.requests
+
+        const newUserRequests = userRequests.filter( obj => {
+            const id = obj.id;
+            return id != requestId
+        })
+        
+        return Object.assign({}, state, {
+            requests: newUserRequests
         });
     }
     else if (action.type === actions.FETCH_BOARD_SUCCESS) {

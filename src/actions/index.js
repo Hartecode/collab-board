@@ -1,7 +1,7 @@
 const API_BASE_URL = 'http://localhost:8080';
 
 
-// *** fetch the signed in user info ***
+// *** fetch the signed in user info / dashbaord***
 export const FETCH_LOGIN_USER_SUCCESS = 'FETCH_LOGIN_USER_SUCCESS';
 export const fetchLoginUserSuccess = mainUser => ({
     type: FETCH_LOGIN_USER_SUCCESS,
@@ -22,7 +22,7 @@ export const fetchLoginUser = (id) => dispatch => {
         });
 }; 
 
-// **** fetch the github repo ****
+// **** fetch the github repo / dashboard ****
 export const FETCH_GITHUB_REPO_SUCCES = 'FETCH_GITHUB_REPO_SUCCES';
 export const fetchGithubRepoSuccess = githubRepo => ({
     type: FETCH_GITHUB_REPO_SUCCES,
@@ -43,7 +43,9 @@ export const fetchGithubRepo = (url) => dispatch => {
         });
 };
 
-// **** fetch the user's projects ****
+
+
+// **** fetch the user's projects / dashbaord ****
 export const FETCH_USER_PROJECTS_SUCCESS = 'FETCH_USER_PROJECTS_SUCCESS';
 export const fetchUserProjectsSuccess = userRepo => ({
     type: FETCH_USER_PROJECTS_SUCCESS,
@@ -63,54 +65,11 @@ export const fetchUserProjects = (id) => dispatch => {
         });
 }; 
 
-// **** fetch all login user requests ****
-export const FETCH_REQUEST_SUCCESS = 'FETCH_REQUEST_SUCCESS';
-export const fetchRequestSuccess = request => ({
-    type: FETCH_REQUEST_SUCCESS,
-    request
-});
-
-export const fetchRequests = (id) => dispatch => {
-    fetch(`${API_BASE_URL}/api/requests/${id}`)
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
-        .then(request => {
-            dispatch(fetchRequestSuccess(request));
-        });
-}; 
-
-// *** festch All Board Projects ****
-export const FETCH_BOARD_SUCCESS = 'FETCH_BOARD_SUCCESS';
-export const fetchBoardSuccess = boardRepo => ({
-    type: FETCH_BOARD_SUCCESS,
-    boardRepo
-});
-
-export const fetchFullBoard= () => dispatch => {
-    fetch(`${API_BASE_URL}/api/projects`)
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
-        .then(projects => {
-            dispatch(fetchBoardSuccess(projects));
-        });
-}; 
-
-
-
-
-// **** Post a New Project ***
+// **** Post a New Project / dashboard***
 export const POST_NEW_PROJECTS_SUCCESS = 'POST_NEW_PROJECTS_SUCCESS';
 export const postNewProjectSuccess = userRepo => ({
-	type: POST_NEW_PROJECTS_SUCCESS,
-	userRepo
+    type: POST_NEW_PROJECTS_SUCCESS,
+    userRepo
 });
 
 export const fetchPostProject = (data) => dispatch => {
@@ -133,6 +92,67 @@ export const fetchPostProject = (data) => dispatch => {
         });
 }; 
 
+// **** fetch all login user requests / request ****
+export const FETCH_REQUEST_SUCCESS = 'FETCH_REQUEST_SUCCESS';
+export const fetchRequestSuccess = request => ({
+    type: FETCH_REQUEST_SUCCESS,
+    request
+});
+
+export const fetchRequests = (id) => dispatch => {
+    fetch(`${API_BASE_URL}/api/requests/${id}`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(request => {
+            dispatch(fetchRequestSuccess(request));
+        });
+}; 
+
+
+// *** const fetch delete requst / reqest ***
+export const FETCH_DELETE_REQUEST_SUCCESS = 'FETCH_DELETE_REQUEST_SUCCESS';
+export const fetchDeleteRequestSuccess = request => ({
+    type: FETCH_DELETE_REQUEST_SUCCESS,
+    request
+});
+
+export const fetchDeleteRequest = (id) => dispatch => {
+    fetch(`${API_BASE_URL}/api/requests/${id}`, {
+        method: 'delete'
+    })
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            dispatch(fetchDeleteRequestSuccess(id))
+        })
+}
+
+// *** festch All Board Projects / board ****
+export const FETCH_BOARD_SUCCESS = 'FETCH_BOARD_SUCCESS';
+export const fetchBoardSuccess = boardRepo => ({
+    type: FETCH_BOARD_SUCCESS,
+    boardRepo
+});
+
+export const fetchFullBoard= () => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(projects => {
+            dispatch(fetchBoardSuccess(projects));
+        });
+}; 
+
+
 export const PUT_COLLABORATOR_SUCCESS = 'PUT_COLLABORATOR_SUCCESS';
 export const putCollaboratorSuccess = collab => ({
 	type: PUT_COLLABORATOR_SUCCESS,
@@ -152,24 +172,7 @@ export const putCollaboratorSuccess = collab => ({
 //         });
 // }; 
 
-export const DELETE_REQUEST_SUCCESS = 'DELETE_REQUEST_SUCCESS';
-export const deleteRequestSuccess = request => ({
-	type: DELETE_REQUEST_SUCCESS,
-	request
-});
 
-// export const fetchBoard = () => dispatch => {
-//     fetch(`${API_BASE_URL}/api/projects`)
-//         .then(res => {
-//             if (!res.ok) {
-//                 return Promise.reject(res.statusText);
-//             }
-//             return res.json();
-//         })
-//         .then(board => {
-//             dispatch(fetchProjectsSucces(board));
-//         });
-// }; 
 
 export const VIEW_PROJECT = 'VIEW_PROJECT'
 export const viewProject = selectedProject => ({
@@ -193,16 +196,4 @@ export const DENY_REQUEST = 'DENY_REQUEST';
 export const denyRequest = request => ({
     type: DENY_REQUEST,
     request
-});
-
-export const LOG_IN = 'LOG_IN';
-export const logIn = access => ({
-    type: LOG_IN,
-    access
-});
-
-export const LOG_OUT = 'LOG_OUT';
-export const logOut = leave => ({
-    type: LOG_OUT,
-    leave
 });
