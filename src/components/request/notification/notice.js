@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import "./notice.css";
+import { fetchDeleteRequest } from '../../../actions';
+
 
 export default class Notice extends React.Component {
 	constructor(props) {
@@ -9,6 +12,8 @@ export default class Notice extends React.Component {
 			status: 'Pending'
 		}
 	}
+
+
 
 	onClickExpand = () => {
 		this.setState( prevState => ({
@@ -20,12 +25,14 @@ export default class Notice extends React.Component {
 		this.setState(prevState => ({
 			status: 'Approve'
 		}));
+		console.log(this.state.status);
 	}
 
 	statusDennyClick = () => {
 		this.setState(prevState => ({
 			status: 'Denied'
 		}));
+		console.log(this.state.status);
 	}
 
 	render() {
