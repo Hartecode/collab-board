@@ -9,7 +9,10 @@ export class Dashboard extends React.Component {
 	
 	componentDidMount() {
 		console.log(this.props);
-		this.props.dispatch(fetchLoginUser(this.props.match.params.userId));
+		const userID = this.props.match.params.userId;
+		if(userID) {
+			this.props.dispatch(fetchLoginUser(userID));
+		}
 	}
  	
  	render() {
