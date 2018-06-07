@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './header.css';
 
+
 export function Header(props) {
+	const dashboardUrl = `/dashboard/${props.mainUser.id}`;
+
 	return (
 		<header role="banner">
 	      <nav role="navagation">
 	        <ul className="navLinkContainer">
 	        	<li>
-	        		<Link to='/dashboard'>
+	        		<Link to={dashboardUrl} > 
 	        			CB
 	        		</Link>
 	        	</li>
