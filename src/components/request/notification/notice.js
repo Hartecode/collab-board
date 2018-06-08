@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import "./notice.css";
-import { fetchDeleteRequest } from '../../../actions';
+import { fetchPostApprovedRequest, fetchDeleteRequest } from '../../../actions';
 
 
-export default class Notice extends React.Component {
+export class Notice extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -22,20 +22,28 @@ export default class Notice extends React.Component {
 	}
 
 	statusApproveClick = () => {
+		const requestId = this.props.id;
+		const approvedPost = {
+			userID: this.props.requesterId,
+			avatarUrl: this.props.avatarImgUrl
+		}
+
 		this.setState(prevState => ({
 			status: 'Approve'
 		}));
-		console.log(this.state.status);
+		this.props.dispatch(fetchPostApprovedRequest(approvedPost, requestId));
 	}
 
 	statusDennyClick = () => {
+		const requestId = this.props.id;
 		this.setState(prevState => ({
 			status: 'Denied'
 		}));
-		console.log(this.state.status);
+		this.props.dispatch(fetchDeleteRequest(requestId));
 	}
 
 	render() {
+		const requestId = this.props.id;
 		const expandDec = this.state.expand;
 
 		return (
@@ -58,5 +66,6 @@ export default class Notice extends React.Component {
 		    </li>	
 		);
 	}
-	
 }
+
+export default connect()(Notice)

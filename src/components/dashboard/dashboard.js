@@ -17,7 +17,8 @@ export class Dashboard extends React.Component {
  	
  	render() {
  		const displayUserRepo = () => {
-			const userProjects = this.props.userRepo;
+			const userProjects = this.props.userRepos;
+			console.log(userProjects)
 			if(userProjects.length > 0) {
 				return userProjects.map( project => {
 					let totalOfCollabs = project.collaborators.length;
@@ -57,7 +58,7 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => ({
     mainUser: state.mainUser,
-    userRepo: state.userRepo
+    userRepos: state.userRepos
 });
 
 export default connect(mapStateToProps)(Dashboard);

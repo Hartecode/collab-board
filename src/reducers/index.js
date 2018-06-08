@@ -10,7 +10,7 @@ const initialState = {
         githubRepos: null,
         username: null
     },
-    userRepo: [
+    userRepos: [
         {
             id: 23434,
             projectName: 'Project Name',
@@ -103,7 +103,7 @@ const initialState = {
         {
             id: 272877921,
             projectId: 387274874982,
-            projectName: 'Project Name',
+            projectName: 'Project Name 1',
             ownerId: 445,
             requesterId: 333,
             requesterName: 'user Name',
@@ -114,7 +114,7 @@ const initialState = {
         {
             id: 8345987,
             projectId: 387274874982,
-            projectName: 'Project Name',
+            projectName: 'Project Name 2',
             ownerId: 445,
             requesterId: 333,
             requesterName: 'user Name',
@@ -125,7 +125,7 @@ const initialState = {
         {
             id: 890989080,
             projectId: 387274874982,
-            projectName: 'Project Name',
+            projectName: 'Project Name 3',
             ownerId: 445,
             requesterId: 333,
             requesterName: 'user Name',
@@ -313,27 +313,31 @@ export default function collabBoardReducer(state = initialState, action) {
     }
     else if (action.type === actions.FETCH_USER_PROJECTS_SUCCESS) {
         return Object.assign({}, state, {
-            userRepo: action.userRepo
+            userRepo: action.userRepos
         });
     }
     else if (action.type === actions.POST_NEW_PROJECTS_SUCCESS) {
         return Object.assign({}, state, {
-            userRepo: [...initialState.userRepo, action.userRepo]
+            userRepos: [...state.userRepos, action.userRepos]
         });
     }
     else if (action.type === actions.FETCH_REQUEST_SUCCESS) {
+        console.log(action.requests);
+        console.log('FETCH_REQUEST_SUCCESS: RUNNING');
+
         return Object.assign({}, state, {
             requests: action.requests
         });
     }
     else if (action.type === actions.FETCH_DELETE_REQUEST_SUCCESS) {
-        const userRequests = initialState.requests;
-        const requestId = action.requests
+        const userRequests = state.requests;
+        const requestId = action.request
 
         const newUserRequests = userRequests.filter( obj => {
             const id = obj.id;
             return id != requestId
         })
+
         
         return Object.assign({}, state, {
             requests: newUserRequests

@@ -47,9 +47,9 @@ export const fetchGithubRepo = (url) => dispatch => {
 
 // **** fetch the user's projects / dashbaord ****
 export const FETCH_USER_PROJECTS_SUCCESS = 'FETCH_USER_PROJECTS_SUCCESS';
-export const fetchUserProjectsSuccess = userRepo => ({
+export const fetchUserProjectsSuccess = userRepos => ({
     type: FETCH_USER_PROJECTS_SUCCESS,
-    userRepo
+    userRepos
 });
 
 export const fetchUserProjects = (id) => dispatch => {
@@ -67,9 +67,9 @@ export const fetchUserProjects = (id) => dispatch => {
 
 // **** Post a New Project / dashboard***
 export const POST_NEW_PROJECTS_SUCCESS = 'POST_NEW_PROJECTS_SUCCESS';
-export const postNewProjectSuccess = userRepo => ({
+export const postNewProjectSuccess = userRepos => ({
     type: POST_NEW_PROJECTS_SUCCESS,
-    userRepo
+    userRepos
 });
 
 export const fetchPostProject = (data) => dispatch => {
@@ -94,15 +94,15 @@ export const fetchPostProject = (data) => dispatch => {
 
 // **** fetch all login user requests / request ****
 export const FETCH_REQUEST_SUCCESS = 'FETCH_REQUEST_SUCCESS';
-export const fetchRequestSuccess = request => ({
+export const fetchRequestSuccess = requests => ({
     type: FETCH_REQUEST_SUCCESS,
-    request
+    requests
 });
 
-export const fetchRequests = (id) => dispatch => {
-    fetch(`${API_BASE_URL}/api/requests/${id}`)
+export const fetchRequests = (userId) => dispatch => {
+    fetch(`${API_BASE_URL}/api/requests/${userId}`)
         .then(res => {
-            if (!res.ok) {
+            if (!res.ok && res.status != 404 ) {
                 return Promise.reject(res.statusText);
             }
             return res.json();
@@ -110,8 +110,28 @@ export const fetchRequests = (id) => dispatch => {
         .then(request => {
             dispatch(fetchRequestSuccess(request));
         });
-}; 
+};
 
+// *** fetch post approved reqest / requesr *** 
+export const fetchPostApprovedRequest = (data, requestID) => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects/collab/:projectId`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then( newProject => {
+            dispatch(fetchDeleteRequestSuccess(requestID))
+        });
+};
 
 // *** const fetch delete requst / reqest ***
 export const FETCH_DELETE_REQUEST_SUCCESS = 'FETCH_DELETE_REQUEST_SUCCESS';
@@ -120,15 +140,15 @@ export const fetchDeleteRequestSuccess = request => ({
     request
 });
 
-export const fetchDeleteRequest = (id) => dispatch => {
-    fetch(`${API_BASE_URL}/api/requests/${id}`, {
+export const fetchDeleteRequest = (requestID) => dispatch => {
+    fetch(`${API_BASE_URL}/api/requests/${requestID}`, {
         method: 'delete'
     })
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
-            dispatch(fetchDeleteRequestSuccess(id))
+            dispatch(fetchDeleteRequestSuccess(requestID))
         })
 }
 

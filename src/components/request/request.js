@@ -8,7 +8,8 @@ import { fetchRequests } from '../../actions';
 export class Request extends React.Component {
 
 	componentDidMount() {
-
+		const userId = this.props.mainUser.id;
+		this.props.dispatch(fetchRequests(userId));
 	}
 
 	render() {
@@ -20,6 +21,8 @@ export class Request extends React.Component {
 					<Notice 
 						index={index}
 						key={obj.id}
+						id={obj.id}
+						requesterId={obj.requesterId}
 						projectName={obj.projectName}
 						avatarImgUrl={obj.avatarImgUrl}
 						requestDec={obj.requestDec}
@@ -46,6 +49,7 @@ export class Request extends React.Component {
 }
 
 const mapStateToProps = state => ({
+	mainUser: state.mainUser,
     requests: state.requests
 });
 
