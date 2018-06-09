@@ -16,6 +16,7 @@ export class Dashboard extends React.Component {
 	}
  	
  	render() {
+ 		console.log(this.props.mainUser);
  		const displayUserRepo = () => {
 			const userProjects = this.props.userRepos;
 			console.log(userProjects)
@@ -27,7 +28,7 @@ export class Dashboard extends React.Component {
 				        		id={project.id}
 				        		key={project.id}
 				        		transferProject={project}
-				        		projectName={project.projectName}
+				        		projectname={project.projectname}
 				        		projectDec={project.projectDec}
 				        		userRole={userRole}
 				        		numberOfCollabs={totalOfCollabs}

@@ -13,13 +13,13 @@ export function SnapShot(props) {
 
 	const proDec = props.projectDec;
 
-	const projectTrimDec = (proDec.lenght <= 146) ? proDec.substring(0, 146): proDec.substring(0, 143) +'...';
+	const projectTrimDec = (proDec.length <= 146) ? proDec.substring(0, 146): proDec.substring(0, 143) +'...';
 
 	return (
 		<li className="projectSnapShot" >
 	    	<h3 className="projectSnapShotTitle">
 	    		<Link onClick={onClick()} to={"/project/" + props.id}> 
-	    			{props.projectName} 
+	    			{props.projectname} 
 	    		</Link>
 	    	</h3>
 	        <p className="projectSnapShotDec">

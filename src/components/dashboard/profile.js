@@ -1,43 +1,55 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './profile.css';
+import { fetchPostProject } from '../../actions';
+
 
 export class Profile extends React.Component  {
 	constructor(props) {
 	    super(props);
 	    this.state = {
 	    	addProject: false,
-	    	selectValue: ''
 	    };
 	    this.onClickPro = this.onClickPro.bind(this);
 	    this.onSubmit = this.onSubmit.bind(this);
-	    this.onChange = this.onChange.bind(this);
 	}
 
+	//click listener which toggles the boolean of addProject
 	onClickPro() {
 		this.setState( prevState => ({
         	addProject: !prevState.addProject
         }));
 	}
 
+	//submit listener which post the selected project
 	onSubmit(e) {
 		e.preventDefault();
-		console.log(`submited ${e.target.repo.value} `)
+		const repos = this.props.githubRepo;
+		const selectValue = e.target.repo.value;
+		const selectedInfo = repos.find( obj => obj.id == selectValue);
+		const addedProject = {
+			projectname: selectedInfo.name,
+			projectDec: selectedInfo.description,
+			projectLink: selectedInfo.html_url,
+			ownerID: this.props.mainUser.id,
+			ownerAvatarUrl: this.props.mainUser.avatarUrl
+		}
+
+		this.props.dispatch(fetchPostProject(addedProject));
+
+		this.setState({
+			addProject: false
+		})
 		
 	}
 
-	onChange(e) {
-		this.setState({
-			selectValue: e.target.value
-		})
-	}
 
 	render() {
-
+		//
 		const listOfRepo = () => {
 			const repos = this.props.githubRepo;
 			return repos.map( pro => {
-				return <option key={pro.id} value={pro.name}>{pro.name}</option>
+				return <option key={pro.id} value={pro.id}>{pro.name}</option>
 			});
 		}
 
@@ -73,7 +85,7 @@ export class Profile extends React.Component  {
 			      				Select a project to add
 			      			</legend>
 
-			      			<select name="repo" value={this.state.selectValue} onChange={this.onChange}>
+			      			<select name="repo" >
 							    {listOfRepo()}
 							</select>
 							<br /><br />

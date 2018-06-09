@@ -19,6 +19,7 @@ export const fetchLoginUser = (id) => dispatch => {
         .then( user => {
             dispatch(fetchLoginUserSuccess(user));
             dispatch(fetchGithubRepo(user.githubRepos));
+            dispatch(fetchUserProjects(user.id));
         });
 }; 
 
@@ -52,8 +53,8 @@ export const fetchUserProjectsSuccess = userRepos => ({
     userRepos
 });
 
-export const fetchUserProjects = (id) => dispatch => {
-    fetch(`${API_BASE_URL}/api/projects/own/${id}`)
+export const fetchUserProjects = (userId) => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects/own/${userId}`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -61,6 +62,7 @@ export const fetchUserProjects = (id) => dispatch => {
             return res.json();
         })
         .then(projects => {
+            console.log(projects);
             dispatch(fetchUserProjectsSuccess(projects));
         });
 }; 
@@ -112,7 +114,7 @@ export const fetchRequests = (userId) => dispatch => {
         });
 };
 
-// *** fetch post approved reqest / requesr *** 
+// *** fetch post approved reqest / request *** 
 export const fetchPostApprovedRequest = (data, requestID) => dispatch => {
     fetch(`${API_BASE_URL}/api/projects/collab/:projectId`, {
         method: 'POST',
@@ -152,14 +154,14 @@ export const fetchDeleteRequest = (requestID) => dispatch => {
         })
 }
 
-// *** festch All Board Projects / board ****
+// *** fetch All Board Projects / board ****
 export const FETCH_BOARD_SUCCESS = 'FETCH_BOARD_SUCCESS';
-export const fetchBoardSuccess = boardRepo => ({
+export const fetchBoardSuccess = boardRepos => ({
     type: FETCH_BOARD_SUCCESS,
-    boardRepo
+    boardRepos
 });
 
-export const fetchFullBoard= () => dispatch => {
+export const fetchFullBoard = () => dispatch => {
     fetch(`${API_BASE_URL}/api/projects`)
         .then(res => {
             if (!res.ok) {
@@ -172,25 +174,31 @@ export const fetchFullBoard= () => dispatch => {
         });
 }; 
 
+// *** fetch A individual project / Project***
+export const FETCH_SINGLE_PROJECT_SUCCESS = 'FETCH_SINGLE_PROJECT_SUCCESS';
+export const fetchSingleProjectSuccess = selectedProject => ({
+    type: FETCH_SINGLE_PROJECT_SUCCESS,
+    selectedProject
+});
+
+export const fetchSingleProject = (projectId) => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects/${projectId}`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(project => {
+            dispatch(fetchSingleProjectSuccess(project));
+        });
+}; 
 
 export const PUT_COLLABORATOR_SUCCESS = 'PUT_COLLABORATOR_SUCCESS';
 export const putCollaboratorSuccess = collab => ({
 	type: PUT_COLLABORATOR_SUCCESS,
 	collab
 });
-
-// export const fetchBoard = () => dispatch => {
-//     fetch(`${API_BASE_URL}/api/projects`)
-//         .then(res => {
-//             if (!res.ok) {
-//                 return Promise.reject(res.statusText);
-//             }
-//             return res.json();
-//         })
-//         .then(board => {
-//             dispatch(fetchProjectsSucces(board));
-//         });
-// }; 
 
 
 
