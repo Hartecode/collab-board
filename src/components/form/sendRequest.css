@@ -1,0 +1,26 @@
+.hide {
+	display: none;
+}
+
+.textInput {
+	width: 100%;
+}
+
+.overlayOutter {
+	position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(117, 117, 117, 0.55);
+    padding-top: 100px;
+}
+
+.overlayInnerForm {
+	background: #f7f4f4;
+    box-sizing: border-box;
+    height: 300px;
+    padding: 50px 5px;
+    max-width: 500px;
+    margin: auto;
+}
