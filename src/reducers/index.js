@@ -71,6 +71,23 @@ export default function collabBoardReducer(state = initialState, action) {
             selectedProject: action.selectedProject
         });
     }
+    else if (action.type === actions.FETCH_POST_PENDING_REQUEST_SUCCESS) {
+        console.log(action.selectedProjectPending);
+        const newPendingUser = action.selectedProjectPending;
+        // return Object.assign({}, state, {
+        //     selectedProject: {
+        //         id: state.selectedProject.id,
+        //         projectname: state.selectedProject,
+        //         projectDec: state.selectedProject.projectDec,
+        //         projectLink: state.selectedProject.projectLink,
+        //         ownerID: state.selectedProject.ownerID,
+        //         ownerAvatarUrl: state.selectedProject.ownerAvatarUrl,
+        //         collaborators: state.selectedProject.collaborators,
+        //         pendingRequest: [...state.selectedProject.pendingRequest, newPendingUser]
+        //     }
+        // });
+
+    }
 
     return state
 };

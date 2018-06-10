@@ -115,8 +115,8 @@ export const fetchRequests = (userId) => dispatch => {
 };
 
 // *** fetch post approved reqest / request *** 
-export const fetchPostApprovedRequest = (data, requestID) => dispatch => {
-    fetch(`${API_BASE_URL}/api/projects/collab/:projectId`, {
+export const fetchPostApprovedRequest = (data, projectId, requestID) => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects/collab/${projectId}`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -131,7 +131,7 @@ export const fetchPostApprovedRequest = (data, requestID) => dispatch => {
             return res.json();
         })
         .then( newProject => {
-            dispatch(fetchDeleteRequestSuccess(requestID))
+            dispatch(fetchDeleteRequest(requestID))
         });
 };
 
@@ -194,10 +194,60 @@ export const fetchSingleProject = (projectId) => dispatch => {
         });
 }; 
 
-export const PUT_COLLABORATOR_SUCCESS = 'PUT_COLLABORATOR_SUCCESS';
-export const putCollaboratorSuccess = collab => ({
-	type: PUT_COLLABORATOR_SUCCESS,
-	collab
-});
+// **** fetch post request to Join Project / Project ***
+export const fetchPostJoin = (data) => dispatch => {
+    fetch(`${API_BASE_URL}/api/requests`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then( newRequest => {
+            //dispatch the fetch to add the pending request to the selected project
+            console.log(newRequest);
+            dispatch(fetchPostPendingRequest(newRequest));
+        });
+};
+
+// *** fetch added a pending restued ****
+export const FETCH_POST_PENDING_REQUEST_SUCCESS = "FETCH_POST_PENDING_REQUEST_SUCCESS";
+export const fetchPostPendingRequestSuccess = selectedProjectPending => ({
+    type: FETCH_POST_PENDING_REQUEST_SUCCESS,
+    selectedProjectPending
+})
+
+export const fetchPostPendingRequest = (data) => dispatch => {
+    const projectId = data.projectID;
+    const postData = {
+        userID: data.requesterID
+    };
+
+    fetch(`${API_BASE_URL}/api/projects/pending/${projectId}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then( newRequest => {
+            console.log(newRequest);
+            dispatch(fetchPostPendingRequestSuccess(newRequest));
+        });
+};
 
 
