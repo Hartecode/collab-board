@@ -13,18 +13,20 @@ export class Request extends React.Component {
 	}
 
 	render() {
-		const requestlist = this.props.requests;
-
+		const requestList = this.props.requests;
+		console.log(requestList);
 		const list = () => {
-			if(requestlist.length > 0) {
-				return requestlist.map( (obj, index) => 
+			if(requestList.length > 0) {
+				return requestList.map( (obj, index) => 
 					<Notice 
 						index={index}
 						key={obj.id}
 						id={obj.id}
-						requesterId={obj.requesterId}
-						projectName={obj.projectName}
-						avatarImgUrl={obj.avatarImgUrl}
+						requesterId={obj.requesterID}
+						projectName={obj.projectname}
+						projectID={obj.projectID}
+						requesterUsername={obj.requesterUsername}
+						avatarImgUrl={obj.requesterAvatarUrl}
 						requestDec={obj.requestDec}
 					/>
 				);

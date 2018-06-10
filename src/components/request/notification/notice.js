@@ -13,8 +13,7 @@ export class Notice extends React.Component {
 		}
 	}
 
-
-
+	//click listern to toggle expnd
 	onClickExpand = () => {
 		this.setState( prevState => ({
 			expand: !(prevState.expand)
@@ -23,15 +22,18 @@ export class Notice extends React.Component {
 
 	statusApproveClick = () => {
 		const requestId = this.props.id;
+		const projectId = this.props.projectID;
 		const approvedPost = {
 			userID: this.props.requesterId,
 			avatarUrl: this.props.avatarImgUrl
 		}
 
+		console.log(approvedPost);
+		this.props.dispatch(fetchPostApprovedRequest(approvedPost, projectId, requestId));
+		
 		this.setState(prevState => ({
 			status: 'Approve'
 		}));
-		this.props.dispatch(fetchPostApprovedRequest(approvedPost, requestId));
 	}
 
 	statusDennyClick = () => {
@@ -54,8 +56,12 @@ export class Notice extends React.Component {
 		    	</h3>
 		    	<div className="requestUser">
 		    		<div className="requestElement">
-		    			<a href="#"><img className="userThumpnail" src={this.props.avatarImgUrl} alt="User name" />
-		            User Name</a>
+		    			<a href="#">
+		    			<img className="userThumpnail" 
+		    			src={this.props.avatarImgUrl} 
+		    			alt={this.props.requesterUsername} />
+		            	{this.props.requesterUsername}
+		            	</a>
 		    		</div>
 		    	<div className="requestElement">
 		    		<button className="requestButton" onClick={this.statusApproveClick}>connect</button>
