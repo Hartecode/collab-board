@@ -23,14 +23,13 @@ export class Dashboard extends React.Component {
 			if(userProjects.length > 0) {
 				return userProjects.map( project => {
 					let totalOfCollabs = project.collaborators.length;
-					let userRole = (project.ownerID === this.props.mainUser.id)? 'Owner' : 'Co-Collab';
+					
 					return <SnapShot 
 				        		id={project.id}
 				        		key={project.id}
-				        		transferProject={project}
 				        		projectname={project.projectname}
 				        		projectDec={project.projectDec}
-				        		userRole={userRole}
+				        		userRole={'Owner'}
 				        		numberOfCollabs={totalOfCollabs}
 				        	/>
 				})
