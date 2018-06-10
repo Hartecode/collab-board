@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import AddProjectForm from '../form/addProject'
 import './profile.css';
 import { fetchPostProject } from '../../actions';
 
@@ -45,17 +46,9 @@ export class Profile extends React.Component  {
 
 
 	render() {
-		//
-		const listOfRepo = () => {
-			const repos = this.props.githubRepo;
-			return repos.map( pro => {
-				return <option key={pro.id} value={pro.id}>{pro.name}</option>
-			});
-		}
-
 		return (
 			<div>
-				<section className="profile" role="section">
+				<section className="profile" role="region">
 					<div className="profileElements">
 				    	<img className="profileImage" 
 				    		src={this.props.mainUser.avatarUrl} 
@@ -79,20 +72,7 @@ export class Profile extends React.Component  {
 				</section>
 
 				<section className={(this.state.addProject)? '': 'hide'} role="region">
-			      	<form onSubmit={this.onSubmit}>
-			      		<fieldset>
-			      			<legend>
-			      				Select a project to add
-			      			</legend>
-
-			      			<select name="repo" >
-							    {listOfRepo()}
-							</select>
-							<br /><br />
-							<input type="submit" />
-				      		
-						</fieldset>
-			      	</form>
+			      	<AddProjectForm onSubmit={this.onSubmit} />
 			    </section>
 		    </div>
 		);
