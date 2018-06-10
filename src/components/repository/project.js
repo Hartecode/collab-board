@@ -1,40 +1,80 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import SendRequestForm from '../form/sendRequest';
 import './project.css';
-import { fetchSingleProject } from '../../actions';
+import { fetchSingleProject, fetchPostJoin } from '../../actions';
 
 
 export class Project extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			display: false
+		}
+
+		this.onClickPro = this.onClickPro.bind(this);
+	    this.onSubmit = this.onSubmit.bind(this);
+	}
 
 	componentDidMount() {
 		const projectId = this.props.match.params.projectId;
 		this.props.dispatch(fetchSingleProject(projectId));
 	}
 
+	//click listener which toggles the boolean of display
+	onClickPro() {
+		this.setState( prevState => ({
+        	display: !prevState.display
+        }));
+	}
+	
+	//*** submit listener for request to join
+	onSubmit(e) {
+		e.preventDefault();
+		const submited = e.target.request
+		const submitedValue = submited.value;
+		const postData = {
+			  projectname: this.props.selectedProject.projectname,
+			  projectID: this.props.selectedProject.id,
+			  ownerID: this.props.selectedProject.ownerID,
+			  requesterID: this.props.mainUser.id,
+			  requesterUsername: this.props.mainUser.username,
+			  requesterAvatarUrl: this.props.mainUser.avatarUrl,
+			  requestDec: submitedValue
+			};
+		console.log(postData);
+
+		this.props.dispatch(fetchPostJoin(postData));
+
+		this.setState( prevState => ({
+        	display: !prevState.display
+        }));
+
+         submited.value = "I would like to be part of this project."
+	}
+
+
 	render(){
-		const selectedProjectA =  this.props.selectedProject;
-		console.log(selectedProjectA);
 
 		const canJoin = () => {
 			const currentUser = this.props.mainUser.id;
 			const projectOwner = this.props.selectedProject.ownerID;
 			if(currentUser != projectOwner) {
-				return <button className="projectJoin">
+				return <button onClick={this.onClickPro} className="projectJoin">
 		        		Join Team
 		        	   </button>
 			}
 		}
 
 		const projectCollaborators = this.props.selectedProject.collaborators;
-		const collabList = <li key='404' > None </li>
+		let collabList = <li key='404' > None </li>
 
-		console.log(projectCollaborators);
 		if(projectCollaborators) {
-			const collabList = projectCollaborators.map((person, index) =>  
+			collabList = projectCollaborators.map((person, index) =>  
 					<li key={index}>
 						<img className="userThumpnail" 
-							src={person.avatarImgUrl} 
-							alt="{person.userID}" 
+							src={person.avatarUrl} 
+							alt={person.userID} 
 						/>
 		            </li>          
 			);
@@ -43,7 +83,7 @@ export class Project extends React.Component {
 
 		return (
 			<main role="main">
-		      <section className="proContainer">
+		      <section className="proContainer" role="region">
 		        <h2 className="pageTilte">
 		        	{this.props.selectedProject.projectname}
 		        </h2>
@@ -72,8 +112,17 @@ export class Project extends React.Component {
 		        </div> 
 		        <div className="">
 		        	{canJoin()}
+		        	<button onClick={this.onClickPro} className="projectJoin">
+		        		Join Team
+		        	   </button>
 		        </div>
 		      </section>
+		      <SendRequestForm 
+		      	projectname={this.props.selectedProject.projectname}
+		      	display={this.state.display}
+		      	onClickPro={this.onClickPro}
+		      	onSubmit={this.onSubmit}
+		      />
 		    </main>
 		);
 	}
