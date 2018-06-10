@@ -201,27 +201,3 @@ export const putCollaboratorSuccess = collab => ({
 });
 
 
-
-export const VIEW_PROJECT = 'VIEW_PROJECT'
-export const viewProject = selectedProject => ({
-    type: VIEW_PROJECT,
-    selectedProject
-});
-
-export const ADD_REQUEST = 'ADD_REQUEST';
-export const addRequest = request => ({
-    type: ADD_REQUEST,
-    request
-});
-
-export const APPROVE_REQUEST = 'APPROVE_REQUEST';
-export const approveRequest = request => ({
-    type: APPROVE_REQUEST,
-    request
-});
-
-export const DENY_REQUEST = 'DENY_REQUEST';
-export const denyRequest = request => ({
-    type: DENY_REQUEST,
-    request
-});
