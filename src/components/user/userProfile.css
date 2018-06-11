@@ -1,0 +1,18 @@
+
+
+.userprojectlist {
+	display: flex;
+    flex-wrap: wrap;
+}
+
+.repoTitle {
+	margin-left: 5px;
+}
+
+
+
+@media only screen and (min-width: 715px) {
+	.dashboardContainer {
+		display: flex;
+	}
+}

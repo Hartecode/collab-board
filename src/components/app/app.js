@@ -8,6 +8,8 @@ import Dashboard from '../dashboard/dashboard';
 import Board from '../board/board';
 import Project from '../repository/project';
 import Request from '../request/request';
+import UserProfile from '../user/userProfile';
+
 
 
 
@@ -26,6 +28,7 @@ export default function App() {
 				<Route exact path="/board" component={Board} />
 				<Route exact path="/project/:projectId" component={Project} />
 				<Route exact path="/request" component={Request} />
+				<Route exact path="/user/:userId" component={UserProfile} />
 			</div>
 		</Router>
 	);

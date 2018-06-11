@@ -1,0 +1,32 @@
+.profile {
+ 	display: flex;
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+.profileElements {
+	box-sizing: border-box;
+	overflow: hidden;
+  	width: 50%;
+  	padding: 10px;
+}
+
+.profileImage {
+  	width: 100%;
+  	border-radius: 50%;
+}
+
+.hide {
+	display: none;
+}
+
+@media only screen and (min-width: 715px) {
+	.profile {
+		display: block;
+		width: 255px;
+	}
+
+	.profileElements {
+		width: 100%;
+	}
+}
