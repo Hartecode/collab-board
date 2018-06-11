@@ -60,7 +60,7 @@ export class Profile extends React.Component  {
 				    		{this.props.mainUser.username}
 				    	</p>
 				    	<p>
-				    		<a href={this.props.mainUser.githubLink}>
+				    		<a href={this.props.mainUser.githubProfileUrl} target="_blank">
 				    			Github Profile
 				    		</a>
 				    	</p>

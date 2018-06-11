@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import SendRequestForm from '../form/sendRequest';
 import './project.css';
 import { fetchSingleProject, fetchPostJoin } from '../../actions';
@@ -61,8 +62,9 @@ export class Project extends React.Component {
 			const projectOwner = this.props.selectedProject.ownerID;
 			if(currentUser != projectOwner) {
 				return <button onClick={this.onClickPro} className="projectJoin">
-		        		Join Team
-		        	   </button>
+			        			Join Team
+			        </button>
+		        	   
 			}
 		}
 
@@ -72,11 +74,14 @@ export class Project extends React.Component {
 		if(projectCollaborators) {
 			collabList = projectCollaborators.map((person, index) =>  
 					<li key={index}>
-						<img className="userThumpnail" 
-							src={person.avatarUrl} 
-							alt={person.userID} 
-						/>
-		            </li>          
+						<Link to={'/user/' +person.userID} >
+							<img className="userThumpnail" 
+								src={person.avatarUrl} 
+								alt={person.userID} 
+							/>
+						</Link>
+		            </li> 
+
 			);
 		}
 
@@ -94,15 +99,18 @@ export class Project extends React.Component {
 		        	Project Link
 		        </h3>
 		        <p>
-		        	<a href={this.props.selectedProject.projectLink}>
+		        	<a href={this.props.selectedProject.projectLink} target="_blank">
 		        		{this.props.selectedProject.projectLink}
 		        	</a>
 		        </p>
 		        <div className="projectTeam">
 		          <h3>Team Lead:</h3>
-		          <img className="userThumpnail" 
-		          src={this.props.selectedProject.ownerAvatarUrl} 
-		          /> 
+		          <Link to={'/user/' + this.props.selectedProject.ownerID}>
+			          <img className="userThumpnail" 
+			          src={this.props.selectedProject.ownerAvatarUrl} 
+			          alt={this.props.selectedProject.ownerID}
+			          /> 
+		          </Link>
 		        </div>
 		        <div className="projectTeam">
 		          <h3>Collabs:</h3>
