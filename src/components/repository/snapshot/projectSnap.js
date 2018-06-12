@@ -7,7 +7,7 @@ export function SnapShot(props) {
 
 	const proDec = props.projectDec;
 
-	const projectTrimDec = (proDec.length <= 146) ? proDec.substring(0, 146): proDec.substring(0, 143) +'...';
+	const projectTrimDec = (proDec.length <= 140) ? proDec.substring(0, 140): proDec.substring(0, 137) +'...';
 
 	return (
 		<li className="projectSnapShot" >
