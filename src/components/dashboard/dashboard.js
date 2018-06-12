@@ -19,7 +19,6 @@ export class Dashboard extends React.Component {
  		console.log(this.props.mainUser);
  		const displayUserRepo = () => {
 			const userProjects = this.props.userRepos;
-			console.log(userProjects)
 			if(userProjects.length > 0) {
 				return userProjects.map( project => {
 					let totalOfCollabs = project.collaborators.length;
@@ -38,6 +37,28 @@ export class Dashboard extends React.Component {
 			}
 		}
 
+		const displayUserCollabs = () => {
+			const userCollabs = this.props.userCollabs;
+			console.log(userCollabs)
+			if(userCollabs.length > 0) {
+				return userCollabs.map( project => {
+					let totalOfCollabs = project.collaborators.length;
+					
+					return <SnapShot 
+				        		id={project.id}
+				        		key={project.id}
+				        		projectname={project.projectname}
+				        		projectDec={project.projectDec}
+				        		userRole={'Co-Collab'}
+				        		numberOfCollabs={totalOfCollabs}
+				        	/>
+				})
+			} else {
+				return <li><h2> There are no Collab posted.</h2></li>
+			}
+		}
+
+
 		return (
 			<main className="dashboardContainer" role="main">
 		      <Profile />
@@ -45,6 +66,9 @@ export class Dashboard extends React.Component {
 		        <h2 className="repoTitle">Repository</h2>
 		        <ul className="userprojectlist" aria-live="assertive">
 		        	{displayUserRepo()}
+		        </ul>
+		        <ul className="userprojectlist" aria-live="assertive">
+		        	{displayUserCollabs()}
 		        </ul>
 		      </section>
 		    </main>
@@ -58,7 +82,8 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => ({
     mainUser: state.mainUser,
-    userRepos: state.userRepos
+    userRepos: state.userRepos,
+    userCollabs: state.userCollabs
 });
 
 export default connect(mapStateToProps)(Dashboard);

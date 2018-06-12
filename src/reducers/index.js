@@ -11,6 +11,7 @@ const initialState = {
         username: null
     },
     userRepos: [],
+    userCollabs: [],
     requests: [],
     boardRepos: [],
     selectedProject: {},
@@ -30,6 +31,11 @@ export default function collabBoardReducer(state = initialState, action) {
     else if (action.type === actions.FETCH_USER_PROJECTS_SUCCESS) {
         return Object.assign({}, state, {
             userRepos: action.userRepos
+        });
+    }
+    else if (action.type === actions.FETCH_USER_COLLABS_SUCCESS) {
+        return Object.assign({}, state, {
+            userCollabs: action.userCollabs
         });
     }
     else if (action.type === actions.POST_NEW_PROJECTS_SUCCESS) {

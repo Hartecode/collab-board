@@ -20,6 +20,7 @@ export const fetchLoginUser = (id) => dispatch => {
             dispatch(fetchLoginUserSuccess(user));
             dispatch(fetchGithubRepo(user.githubRepos));
             dispatch(fetchUserProjects(user.id));
+            dispatch(fetchUserCollabs(user.id));
         });
 }; 
 
@@ -64,6 +65,27 @@ export const fetchUserProjects = (userId) => dispatch => {
         .then(projects => {
             console.log(projects);
             dispatch(fetchUserProjectsSuccess(projects));
+        });
+}; 
+
+// **** fetch the user's collabs / dashbaord ****
+export const FETCH_USER_COLLABS_SUCCESS = 'FETCH_USER_COLLABS_SUCCESS';
+export const fetchUserCollabsSuccess = userCollabs => ({
+    type: FETCH_USER_COLLABS_SUCCESS,
+    userCollabs
+});
+
+export const fetchUserCollabs = (userId) => dispatch => {
+    fetch(`${API_BASE_URL}/api/projects/collab/${userId}`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(projects => {
+            console.log('collabs:' + projects);
+            dispatch(fetchUserCollabsSuccess(projects));
         });
 }; 
 
