@@ -1,12 +1,39 @@
 
 
+
 .userprojectlist {
 	display: flex;
     flex-wrap: wrap;
 }
 
+.fullRepoContainer {
+	padding: 5px;
+}
+
+.repoTitleContainer {
+	display: flex;
+    list-style-type: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
 .repoTitle {
-	margin-left: 5px;
+	margin: 0;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.hide {
+	display: none;
+}
+
+.selected {
+	border-bottom: 2px solid #ec965e;
+}
+
+.notSelected {
+	border-bottom: 2px solid #2a2da5;
 }
 
 

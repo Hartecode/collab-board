@@ -26,12 +26,14 @@ export class Profile extends React.Component  {
 	onSubmit(e) {
 		e.preventDefault();
 		const repos = this.props.githubRepo;
-		const selectValue = e.target.repo.value;
-		const selectedInfo = repos.find( obj => obj.id == selectValue);
+		const selectRepoValue = e.target.repo.value;
+		const selectRequestValue = e.target.request.value;
+		const selectedInfo = repos.find( obj => obj.id == selectRepoValue);
 		const addedProject = {
 			projectname: selectedInfo.name,
 			projectDec: selectedInfo.description,
 			projectLink: selectedInfo.html_url,
+			projectSeeking: selectRequestValue,
 			ownerID: this.props.mainUser.id,
 			ownerAvatarUrl: this.props.mainUser.avatarUrl
 		}
@@ -60,8 +62,11 @@ export class Profile extends React.Component  {
 				    		{this.props.mainUser.username}
 				    	</p>
 				    	<p>
-				    		<a href={this.props.mainUser.githubProfileUrl} target="_blank">
-				    			Github Profile
+				    		<a className="connectLinks" href={this.props.mainUser.githubProfileUrl} target="_blank">
+				    			<i class="fab fa-github"></i>
+				    		</a>
+				    		<a className="connectLinks" href={"mailto:" + this.props.mainUser.email} target="_blank">
+				    			<i class="fas fa-envelope"></i>
 				    		</a>
 				    	</p>
 				    	<a  onClick={this.onClickPro}>
@@ -70,10 +75,13 @@ export class Profile extends React.Component  {
 				    	</a>
 				    </div>
 				</section>
-
-				<section className={(this.state.addProject)? '': 'hide'} role="region">
-			      	<AddProjectForm onSubmit={this.onSubmit} />
-			    </section>
+				
+		      	<AddProjectForm 
+		      		display={this.state.addProject}
+		      		onClick={this.onClickPro}
+		      		onSubmit={this.onSubmit} 
+		      	/>
+			    
 		    </div>
 		);
 	}

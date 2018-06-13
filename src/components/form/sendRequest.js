@@ -19,7 +19,9 @@ export default function SendRequestForm(props) {
 
 		      			</legend>
 
-		      			<label for="request">Why do you want to join {props.projectname}? </label>
+		      			<label htmlFor="request">
+		      				Why do you want to join {props.projectname}? 
+		      			</label>
 		      			<br />
 		      			<textarea 
 		      				className="textInput"

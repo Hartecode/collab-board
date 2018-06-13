@@ -6,6 +6,14 @@ import './dashboard.css';
 import { fetchLoginUser } from '../../actions';
 
 export class Dashboard extends React.Component {
+	constructor(props) {
+	    super(props);
+	    this.state = {
+		    repoTitleState: true
+	    };
+	    this.selectRepoTitle = this.selectRepoTitle.bind(this);
+	    this.selectCollabTitle = this.selectCollabTitle.bind(this);
+	}
 	
 	componentDidMount() {
 		console.log(this.props);
@@ -14,9 +22,21 @@ export class Dashboard extends React.Component {
 			this.props.dispatch(fetchLoginUser(userID));
 		}
 	}
+	
+	selectRepoTitle() {
+		this.setState( prevState => ({
+			repoTitleState: true
+		}));
+	}
  	
+ 	selectCollabTitle() {
+		this.setState( prevState => ({
+			repoTitleState: false
+		}));
+	}
+
  	render() {
- 		console.log(this.props.mainUser);
+ 		const repoTitleState = this.state.repoTitleState;
  		const displayUserRepo = () => {
 			const userProjects = this.props.userRepos;
 			if(userProjects.length > 0) {
@@ -39,7 +59,6 @@ export class Dashboard extends React.Component {
 
 		const displayUserCollabs = () => {
 			const userCollabs = this.props.userCollabs;
-			console.log(userCollabs)
 			if(userCollabs.length > 0) {
 				return userCollabs.map( project => {
 					let totalOfCollabs = project.collaborators.length;
@@ -62,12 +81,23 @@ export class Dashboard extends React.Component {
 		return (
 			<main className="dashboardContainer" role="main">
 		      <Profile />
-		      <section role="region">
-		        <h2 className="repoTitle">Repository</h2>
-		        <ul className="userprojectlist" aria-live="assertive">
+		      <section className="fullRepoContainer" role="region">
+		      	<ul className="repoTitleContainer">
+		      		<li className={(repoTitleState) ?  "selected" : "notSelected"}>
+		      			<h2 onClick={this.selectRepoTitle} className="repoTitle" >
+		      				Owner Repo
+		      			</h2>
+		      		</li>
+		      		<li className={(repoTitleState) ?  "notSelected" : "selected"}>
+		      			<h2 onClick={this.selectCollabTitle} className="repoTitle" >
+		      				Collabs
+		      			</h2>
+		      		</li>
+		      	</ul>
+		        <ul className={(repoTitleState) ?  "userprojectlist" : "hide"} aria-live="assertive">
 		        	{displayUserRepo()}
 		        </ul>
-		        <ul className="userprojectlist" aria-live="assertive">
+		        <ul className={(repoTitleState) ? "hide" : "userprojectlist"} aria-live="assertive">
 		        	{displayUserCollabs()}
 		        </ul>
 		      </section>

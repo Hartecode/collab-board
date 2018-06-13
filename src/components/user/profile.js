@@ -21,8 +21,11 @@ export default function Profile(props)  {
 			    		{props.username}
 			    	</p>
 			    	<p>
-			    		<a href={props.githubProfileUrl} target="_blank">
-			    			Github Profile
+			    		<a className="connectLinks" href={props.githubProfileUrl} target="_blank">
+			    			<i class="fab fa-github"></i>
+			    		</a>
+			    		<a className="connectLinks" href={"mailto:" + props.email} target="_blank">
+			    			<i class="fas fa-envelope"></i>
 			    		</a>
 			    	</p>
 			    </div>

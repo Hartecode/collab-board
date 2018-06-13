@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './sendRequest.css';
 
 
 export function AddProjectForm(props) {
@@ -14,20 +15,46 @@ export function AddProjectForm(props) {
 	}
 
 	return (
-	      	<form onSubmit={props.onSubmit}>
-	      		<fieldset>
-	      			<legend>
-	      				Select a project to add
-	      			</legend>
+		<section className={(props.display)? 'overlayOutter': 'hide'} role="region">
+			<div className="overlayInnerForm">
+				<a href="#" 
+					onClick={props.onClick}>
+					Close
+				</a>
+		      	<form onSubmit={props.onSubmit}>
+		      		<fieldset>
+		      			<legend>
+		      				Select a project to add to the baord.
+		      			</legend>
 
-	      			<select name="repo" >
-					    {listOfRepo()}
-					</select>
-					<br /><br />
-					<input type="submit" />
-		      		
-				</fieldset>
-	      	</form>
+		      			<label htmlFor="repo">
+							Github Repositories
+						</label>
+						<br />
+		      			<select name="repo" >
+						    {listOfRepo()}
+						</select>
+						<br />
+						<br />
+						<label htmlFor="request">
+							What skills are you seeking in a Collaberator?
+						</label>
+		      			<br />
+		      			<textarea 
+		      				className="textInput"
+		      				name="request"
+			      			rows="4" 
+			      			cols="50" 
+			      			maxLength="200" 
+			      		>
+						</textarea>
+						<br /><br />
+						<input type="submit" />
+			      		
+					</fieldset>
+		      	</form>
+	      	</div>
+      	</section>
 	);
 }
 

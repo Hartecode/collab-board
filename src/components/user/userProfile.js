@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SnapShot from '../repository/snapshot/projectSnap';
 import Profile from './profile';
+import { API_BASE_URL } from '../../config'
 import './userProfile.css';
 
 
@@ -17,15 +18,19 @@ export default class UserProfile extends React.Component {
 		        githubRepos: null,
 		        username: null
 		    },
-		    userRepos: []
+		    userRepos: [],
+		    userCollabs: [],
+		    repoTitleState: true
 	    };
 
+	    this.selectRepoTitle = this.selectRepoTitle.bind(this);
+	    this.selectCollabTitle = this.selectCollabTitle.bind(this);
 	}
 	
 	componentDidMount() {
 		console.log(this.props);
 		const userID = this.props.match.params.userId;
-		fetch(`http://localhost:8080/api/users/loginuser/${userID}`)
+		fetch(`${API_BASE_URL}/api/users/loginuser/${userID}`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -37,7 +42,7 @@ export default class UserProfile extends React.Component {
         	this.setState({
         		user: requestedUser
         	})
-        	fetch(`http://localhost:8080/api/projects/own/${userID}`)
+        	fetch(`${API_BASE_URL}/api/projects/own/${userID}`)
 	        .then(res => {
 	            if (!res.ok) {
 	                return Promise.reject(res.statusText);
@@ -48,11 +53,37 @@ export default class UserProfile extends React.Component {
 	            this.setState({
 	        		userRepos: projects
 	        	})
+
+	        	fetch(`${API_BASE_URL}/api/projects/collab/${userID}`)
+			        .then(res => {
+			            if (!res.ok) {
+			                return Promise.reject(res.statusText);
+			            }
+			            return res.json();
+			        })
+			        .then(projects => {
+			            this.setState({
+			        		userCollabs: projects
+			        	})
+			        });
 	        });
         });
 	}
+
+	selectRepoTitle() {
+		this.setState( prevState => ({
+			repoTitleState: true
+		}));
+	}
+ 	
+ 	selectCollabTitle() {
+		this.setState( prevState => ({
+			repoTitleState: false
+		}));
+	}
  	
  	render() {
+ 		const repoTitleState = this.state.repoTitleState;
  		const displayUserRepo = () => {
 			const userProjects = this.state.userRepos;
 			if(userProjects.length > 0) {
@@ -77,6 +108,27 @@ export default class UserProfile extends React.Component {
 			}
 		}
 
+		const displayUserCollabs = () => {
+			const userCollabs = this.state.userCollabs;
+			console.log(userCollabs)
+			if(userCollabs.length > 0) {
+				return userCollabs.map( project => {
+					let totalOfCollabs = project.collaborators.length;
+					
+					return <SnapShot 
+				        		id={project.id}
+				        		key={project.id}
+				        		projectname={project.projectname}
+				        		projectDec={project.projectDec}
+				        		userRole={'Co-Collab'}
+				        		numberOfCollabs={totalOfCollabs}
+				        	/>
+				})
+			} else {
+				return <li><h2> There are no Collab posted.</h2></li>
+			}
+		}
+
 		return (
 			<main className="dashboardContainer" role="main">
 		      <Profile 
@@ -84,12 +136,24 @@ export default class UserProfile extends React.Component {
 		      	avatarUrl={this.state.user.avatarUrl}
 		      	githubProfileUrl={this.state.user.githubProfileUrl}
 		      />
-		      <section role="region">
-		        <h2 className="repoTitle">
-		        	Repositories
-		        </h2>
-		        <ul className="userprojectlist" aria-live="assertive">
+		      <section className="fullRepoContainer" role="region">
+		        <ul className="repoTitleContainer">
+		      		<li className={(repoTitleState) ?  "selected" : "notSelected"}>
+		      			<h2 onClick={this.selectRepoTitle} className="repoTitle" >
+		      				Owner Repo
+		      			</h2>
+		      		</li>
+		      		<li className={(repoTitleState) ?  "notSelected" : "selected"}>
+		      			<h2 onClick={this.selectCollabTitle} className="repoTitle" >
+		      				Collabs
+		      			</h2>
+		      		</li>
+		      	</ul>
+		        <ul className={(this.state.repoTitleState) ?  "userprojectlist" : "hide"} aria-live="assertive">
 		        	{displayUserRepo()}
+		        </ul>
+		        <ul className={(this.state.repoTitleState) ? "hide" : "userprojectlist"} aria-live="assertive">
+		        	{displayUserCollabs()}
 		        </ul>
 		      </section>
 		    </main>

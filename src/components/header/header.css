@@ -4,53 +4,65 @@ header {
   height: 80px;
 }
 
+.logoLargeScreen, .dashboardWide {
+    display: none;
+}
 
 .navLinkContainer {
-  margin: 0;
-  list-style: none;
-  padding-left: 0;
-  display: flex;
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
 }
 
 .navLinkContainer > li {
-  box-sizing: border-box;
-  width: 25%;
-  text-align: center;
-  padding-top: 10px;
-  font-size: 50px;
+    box-sizing: border-box;
+    width: 25%;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 50px;
 }
 
 .navLinkContainer li a:visited, .navLinkContainer li a {
-  text-decoration: none;
-  color: #ec965f;
+    text-decoration: none;
+    color: #ec965f;
 }
 
 .userImage {
-  width: 55px;
-  border-radius: 50%;
+    width: 55px;
+    border-radius: 50%;
 }
 
+
 @media only screen and (min-width: 715px) {
-  header {
-    height: 50px;
-  }
+    header {
+      height: 50px;
+    }
 
-  .navLinkContainer {
-    justify-content: space-between;
-  }
+    .dashboardWide, .logoLargeScreen {
+        display: block;
+    }
 
-  .navLinkContainer > li {
-    font-size: 30px;
-    width: 10%;
-  }
+    .logoSmallScreen {
+        display: none;
+    }
 
-  .navLinkContainer > li:first-child {
-    width: 70%;
-    text-align: left;
-    padding-left: 10px;
-  }
+    .navLinkContainer {
+        justify-content: space-between;
+    }
 
-  .userImage {
-    width: 31px;
-  }
+    .navLinkContainer > li {
+        font-size: 30px;
+        width: 10%;
+    }
+
+    .navLinkContainer > li:first-child {
+        width: 70%;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .userImage {
+        width: 31px;
+    }
 }

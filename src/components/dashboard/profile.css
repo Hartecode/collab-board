@@ -16,6 +16,18 @@
   	border-radius: 50%;
 }
 
+.connectLinks {
+	font-size: 20px;
+}
+
+.connectLinks:nth-child(2) {
+	margin-left: 20px;
+}
+
+.connectLinks:hover {
+	color: #ec965e;
+}
+
 .hide {
 	display: none;
 }

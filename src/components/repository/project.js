@@ -92,6 +92,9 @@ export class Project extends React.Component {
 		        <h2 className="pageTilte">
 		        	{this.props.selectedProject.projectname}
 		        </h2>
+		        <h3>
+		        	Description
+		        </h3>
 		        <p className="projectDec">
 		        	{this.props.selectedProject.projectDec}
 		        </p>
@@ -102,6 +105,12 @@ export class Project extends React.Component {
 		        	<a href={this.props.selectedProject.projectLink} target="_blank">
 		        		{this.props.selectedProject.projectLink}
 		        	</a>
+		        </p>
+		        <h3>
+		        	What is needed in a Collab
+		        </h3>
+		        <p className="projectDec">
+		        	{this.props.selectedProject.projectSeeking}
 		        </p>
 		        <div className="projectTeam">
 		          <h3>Team Lead:</h3>
@@ -120,9 +129,6 @@ export class Project extends React.Component {
 		        </div> 
 		        <div className="">
 		        	{canJoin()}
-		        	<button onClick={this.onClickPro} className="projectJoin">
-		        		Join Team
-		        	   </button>
 		        </div>
 		      </section>
 		      <SendRequestForm 
