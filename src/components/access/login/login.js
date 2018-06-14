@@ -10,13 +10,16 @@ export default class LogIn extends React.Component {
 
 	render() {
 		return (
-			<main className="container" role='main'>
-				<h1 className="signTitle">Sign Up/ Sign In</h1>
-				<a href="http://localhost:8080/auth/github">
-					<button className="loginBtn">
-						<i className="fab fa-github"></i> Github
-					</button>
-				</a>
+			<main className="loginContainer" role='main'>
+				<div className="authBox">
+					<h1 className="signTitle">Sign Up/ Sign In</h1>
+					<a href="http://localhost:8080/auth/github">
+						<button className="loginBtn">
+							<i className="fab fa-github"></i> Github
+						</button>
+					</a>
+				</div>
+				
 			</main>
 		);
 	}

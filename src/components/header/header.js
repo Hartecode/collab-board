@@ -50,7 +50,6 @@ export function Header(props) {
 	        	</li>
 	        </ul>
 	      </nav>
-
 	    </header>
 	);
 }
