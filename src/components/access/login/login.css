@@ -7,15 +7,27 @@
 
 .authBox {
 	background-color: white;
+	margin: auto;
+    margin-top: 150px;
+    max-width: 450px;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center
 }
 
 .signTitle {
-	margin-bottom: 170px;
+	/*margin-bottom: 170px;*/
 }
 
 .loginBtn {
 	background-color: white;
 	font-size: 20px;
-	width: 100%;
+	width: 300px;
 	padding: 5px;
 }
+
