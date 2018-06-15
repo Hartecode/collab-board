@@ -9,7 +9,7 @@ export function Header(props) {
 	const dashboardUrl = `/dashboard/${props.mainUser.id}`;
 
 	return (
-		<header role="banner">
+		<header className="appHeader" role="banner">
 	      <nav role="navagation">
 	        <ul className="navLinkContainer">
 	        	<li>

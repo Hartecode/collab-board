@@ -1,14 +1,16 @@
-.landingHeader {
+#landingHeader {
     box-sizing: border-box;
-    padding: 10px;
-    background-color: #2828a5;
+    padding: 15px 10px;
+    position: absolute;
     display: flex;
     justify-content: space-between;
-    height: 50px;  
+    width: 100%;
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 .logoLanding {
-    color: #ec965f;
+    color: white;
     font-size: 20px;
     margin: 0;
 }
@@ -17,22 +19,30 @@
 
 #navLinkLand, #navLinkLand:visited {
     text-decoration: none;
-    color: #ec965f;
+    color: white;
     font-size: 20px;
+}
+
+#navLinkLand:hover {
+    text-decoration: underline;
+    color: #ec965f 
 }
 
 
 .openingGreeting {
+    box-sizing: border-box;
     text-align: center;
-    background-image: url("https://gcn.com/~/media/GIG/GCN/Redesign/Articles/2016/May/teleworkcollaboration.png");
-    height: 200px;
+    background-image: url("https://www.3xcorp.com/wp-content/uploads/2015/12/collaboration-opt.jpg");
+    height: 400px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 40px;
-    color: #ec965f;
+    padding-top: 100px;
+    color: white;
     font-size: 25px;
     text-shadow: 2px 2px #0000006b;
+    -webkit-transition: .5s all; /* Safari */
+    transition: .5s all; 
 }
 
 .iconImage {
@@ -41,7 +51,9 @@
 
 .appDec {
     background-color: #f4fff0;
+    text-align: center;
     padding: 10px;
+    color: #ec965f;
 }
 
 .descBoxContainer {
@@ -54,8 +66,32 @@
     text-align: center;
     padding: 3px;
     border: 1px solid #7d7d7d;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     margin: auto;
     margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 800px) {
+    #landingHeader {
+        padding: 15px 50px;
+    }
+
+    .openingGreeting {
+      height: 475px;
+    }
+
+    .appDec {
+        font-size: 18px;
+    }
+
+    #navLinkLand, .logoLanding {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .openingGreeting {
+      height: 525px;
+    }
 }
