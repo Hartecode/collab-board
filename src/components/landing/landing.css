@@ -78,7 +78,7 @@
     }
 
     .openingGreeting {
-      height: 475px;
+        height: 475px;
     }
 
     .appDec {
@@ -92,6 +92,7 @@
 
 @media only screen and (min-width: 1000px) {
     .openingGreeting {
-      height: 525px;
+        height: 525px;
+        background-position: top;
     }
 }

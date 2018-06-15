@@ -31,3 +31,25 @@ a:hover {
 	margin: auto;
 	max-width: 1000px;
 }
+
+/*************/
+
+.btn {
+	color: #2828a5;
+	background-color: #ec965f;
+	outline: none;
+    border: none;
+    box-shadow: -5px -5px;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.btn:hover {
+	color: #ec965f;
+	background-color: #2828a5;
+	box-shadow: 5px 5px;
+}
+
+.btn:active {
+	box-shadow: 1px 1px;
+}
