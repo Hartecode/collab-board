@@ -4,18 +4,20 @@ import './logout.css';
 
 export default function LogOut() {
 	return (
-		<main className="container" role='main'>
-			<h1>Do You want to LogOut?</h1>
+		<main className="" role='main'>
+			<div className="logoutBox">
+				<h1>Do you want to log out?</h1>
 				<a href="http://localhost:8080/auth/logout">
-					<button className="">
+					<button className="btn logoutBtn">
 						Yes
 					</button>
 				</a>
 				<Link to='/dashboard'>
-					<button className="">
+					<button className="btn logoutBtn">
 						No, back to my dashboard
 					</button>
 				</Link>
+			</div>
 		</main>
 	);
 }

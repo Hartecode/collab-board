@@ -1,0 +1,19 @@
+.logoutBox {
+	margin: auto;
+    margin-top: 100px;
+    box-sizing: border-box;
+    max-width: 450px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #7d7d7d;
+	display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    text-align: center;
+}
+
+.logoutBtn {
+	font-size: 30px;
+	margin: 10px;
+}
