@@ -24,7 +24,7 @@ export function AddProjectForm(props) {
 		      	<form onSubmit={props.onSubmit}>
 		      		<fieldset>
 		      			<legend>
-		      				Select a project to add to the baord.
+		      				Select a project to add to the board.
 		      			</legend>
 
 		      			<label htmlFor="repo">
@@ -37,7 +37,7 @@ export function AddProjectForm(props) {
 						<br />
 						<br />
 						<label htmlFor="request">
-							What skills are you seeking in a Collaberator?
+							What skills are you seeking in a collaborator?
 						</label>
 		      			<br />
 		      			<textarea 
@@ -49,7 +49,7 @@ export function AddProjectForm(props) {
 			      		>
 						</textarea>
 						<br /><br />
-						<input type="submit" />
+						<input className="btn submitBtn" type="submit" />
 			      		
 					</fieldset>
 		      	</form>
