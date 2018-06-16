@@ -14,14 +14,14 @@ export default class LogIn extends React.Component {
 				<header id="landingHeader" role="banner">
 		      		<nav role="navagation">
 		      			<Link id="navLinkLand" to='/'>		
-	    					<h1 className="logoLanding">Collab Board</h1>
+	    					<h1 className="logoLanding">CollaBoard</h1>
 	    				</Link>   
 		      		</nav>
 		    	</header>
 				<div className="authBox">
 					<div>
 						<h1 className="signTitle">Sign Up/ Sign In</h1>
-						<p>All users need a Github Account to access the site.</p>
+						<p>All users need a Github account to access the site.</p>
 					</div>
 					<a href="http://localhost:8080/auth/github">
 						<button className="btn loginBtn">
