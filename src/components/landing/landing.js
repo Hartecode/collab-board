@@ -24,7 +24,7 @@ export default function LandingPage() {
 		    		<div className="descBox">
 		    			<h3>SignUp/Login</h3>
 		    			<br />
-		    			<i className="fab fa-github fa-7x"></i>
+		    			<i className="fab fa-github fa-7x decIcon"></i>
 		    		</div>
 		    		<div className="descBox">
 		    			<h3>Add Project</h3>
