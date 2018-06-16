@@ -1,4 +1,8 @@
-
+.dashboardContainer {
+	max-width: 1000px;
+	margin: auto;
+	padding-top: 20px; 
+}
 
 
 .userprojectlist {
@@ -30,10 +34,14 @@
 
 .selected {
 	border-bottom: 2px solid #ec965e;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .notSelected {
 	border-bottom: 2px solid #2a2da5;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 
