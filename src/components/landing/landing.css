@@ -72,6 +72,21 @@
     margin-bottom: 20px;
 }
 
+
+.fa-github {
+    color: #24292e;
+}
+
+.fa-plus-circle {
+    color: blue;
+}
+
+
+
+.fa-connectdevelop {
+    color: #2a2da5;
+}
+
 @media only screen and (min-width: 800px) {
     #landingHeader {
         padding: 15px 50px;

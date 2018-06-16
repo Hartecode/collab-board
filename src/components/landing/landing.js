@@ -6,7 +6,7 @@ export default function LandingPage() {
 	return (
 		<div>
 			<header id="landingHeader" role="banner">
-				<h1 className="logoLanding">Collab Board</h1>
+				<h1 className="logoLanding">CollaBoard</h1>
 		      <nav role="navagation">
 		      	<Link id="navLinkLand" to='/login'>		
 	    			Sign Up/Sign In
@@ -19,7 +19,7 @@ export default function LandingPage() {
 		    	
 		    </section>
 		    <section className="appDec" role="region">
-		    	<p>Collab Board is where developers go to seek collaberation on thier projects or find projects to collaberate on.</p>
+		    	<p>CollaBoard is where developers seek collaboration on their projects or find projects to collaborate on.</p>
 		    	<div className="descBoxContainer">
 		    		<div className="descBox">
 		    			<h3>SignUp/Login</h3>
