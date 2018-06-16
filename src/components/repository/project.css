@@ -36,18 +36,6 @@ h3 {
   height: 35px;
   margin: auto;
   margin-top: 20px;
-  background-color: #2828a5;
-  color: #ec965f;
   display: block;
   font-size: 29px;
-  border: 1px solid #7d7d7d;
-}
-
-.projectJoin:hover {
-  box-shadow: 0px 0px 3px 1px #7d7d7d;
-}
-
-.projectJoin:active {
-  background-color: #ec965f;
-  color: #2828a5;
 }

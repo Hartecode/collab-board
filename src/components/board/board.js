@@ -29,7 +29,7 @@ export class Board extends React.Component {
 					status = 'Pending';
 				} else {
 					status = <Link to={"/project/" + file.id}> 
-				    			<button className="projectSnapShotJoin">Join Team</button>
+				    			<button className="btn projectSnapShotJoin">Join Team</button>
 				    		</Link> 
 				}
 				

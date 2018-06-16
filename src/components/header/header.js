@@ -15,7 +15,7 @@ export function Header(props) {
 	        	<li>
 	        		<Link to={dashboardUrl} > 
 	        			<span data-tip="dashboard" data-for="dashboard" className="logoSmallScreen">CB</span>
-	        			<span className="logoLargeScreen"> Collab Board</span>
+	        			<span className="logoLargeScreen"> CollaBoard</span>
 	        		</Link>
 	        		<ReactTooltip id="dashboard" />
 	        	</li>

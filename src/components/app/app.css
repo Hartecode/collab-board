@@ -35,6 +35,7 @@ a:hover {
 /*************/
 
 .btn {
+	cursor: pointer;
 	color: #2828a5;
 	background-color: #ec965f;
 	outline: none;
@@ -52,4 +53,8 @@ a:hover {
 
 .btn:active {
 	box-shadow: 1px 1px;
+}
+
+.submitBtn {
+	font-size: 23px;
 }

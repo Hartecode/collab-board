@@ -61,7 +61,7 @@ export class Project extends React.Component {
 			const currentUser = this.props.mainUser.id;
 			const projectOwner = this.props.selectedProject.ownerID;
 			if(currentUser != projectOwner) {
-				return <button onClick={this.onClickPro} className="projectJoin">
+				return <button onClick={this.onClickPro} className="btn projectJoin">
 			        			Join Team
 			        </button>
 		        	   
