@@ -1,4 +1,26 @@
+.request {
+	padding: 10px;
+}
+
 .requestDec {
 	height: 0;
     overflow: hidden;
+}
+
+.noticeToggleBtn {
+	outline: none;
+	float: left;
+	border: none;
+    background-color: #ec965e;
+    color: #2a2da5;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.noticeToggleBtn {
+
+}
+
+.requestProjectTitle {
+	text-align: center;
 }

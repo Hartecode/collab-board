@@ -50,9 +50,9 @@ export class Notice extends React.Component {
 
 		return (
 			<li className="request" id={this.props.index}>
-		    	<h3 className="requestProjectTitle">
-		    		<button onClick={this.onClickExpand}> { expandDec ? '+' : '-'}</button> 
-		    		{this.props.projectName}
+				<button className="noticeToggleBtn" onClick={this.onClickExpand}> { expandDec ? '+' : '-'}</button>
+		    	<h3 className="requestProjectTitle"> 
+		    		Project: {this.props.projectName}
 		    	</h3>
 		    	<div className="requestUser">
 		    		<div className="requestElement">
@@ -64,8 +64,8 @@ export class Notice extends React.Component {
 		            	</a>
 		    		</div>
 		    	<div className="requestElement">
-		    		<button className="requestButton" onClick={this.statusApproveClick}>connect</button>
-		            <button className="requestButton" onClick={this.statusDennyClick}>hide</button>
+		    		<button className="btn requestButton" onClick={this.statusApproveClick}>Approve</button>
+		            <button className="btn requestButton" onClick={this.statusDennyClick}>Deny</button>
 		          </div>
 		        </div>
 		        <p className={this.state.expand ? 'requestDec': ''} >{this.props.requestDec}</p>
