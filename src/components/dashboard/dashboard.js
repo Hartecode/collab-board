@@ -79,28 +79,30 @@ export class Dashboard extends React.Component {
 
 
 		return (
-			<main className="dashboardContainer" role="main">
-		      <Profile />
-		      <section className="fullRepoContainer" role="region">
-		      	<ul className="repoTitleContainer">
-		      		<li className={(repoTitleState) ?  "selected" : "notSelected"}>
-		      			<h2 onClick={this.selectRepoTitle} className="repoTitle" >
-		      				Owner Repo
-		      			</h2>
-		      		</li>
-		      		<li className={(repoTitleState) ?  "notSelected" : "selected"}>
-		      			<h2 onClick={this.selectCollabTitle} className="repoTitle" >
-		      				Collabs
-		      			</h2>
-		      		</li>
-		      	</ul>
-		        <ul className={(repoTitleState) ?  "userprojectlist" : "hide"} aria-live="assertive">
-		        	{displayUserRepo()}
-		        </ul>
-		        <ul className={(repoTitleState) ? "hide" : "userprojectlist"} aria-live="assertive">
-		        	{displayUserCollabs()}
-		        </ul>
-		      </section>
+			<main role="main">
+				<div className="dashboardContainer">
+					<Profile />
+					<section className="fullRepoContainer" role="region">
+						<ul className="repoTitleContainer">
+							<li className={(repoTitleState) ?  "selected" : "notSelected"}>
+								<h2 onClick={this.selectRepoTitle} className="repoTitle" >
+									Owner Repo
+								</h2>
+							</li>
+							<li className={(repoTitleState) ?  "notSelected" : "selected"}>
+								<h2 onClick={this.selectCollabTitle} className="repoTitle" >
+									Collabs
+								</h2>
+							</li>
+						</ul>
+						<ul className={(repoTitleState) ?  "userprojectlist" : "hide"} aria-live="assertive">
+							{displayUserRepo()}
+						</ul>
+						<ul className={(repoTitleState) ? "hide" : "userprojectlist"} aria-live="assertive">
+							{displayUserCollabs()}
+						</ul>
+					</section>
+				</div>
 		    </main>
 		);
  	}
