@@ -23,7 +23,7 @@ export default class LogIn extends React.Component {
 						<h1 className="signTitle">Sign Up/ Sign In</h1>
 						<p>All users need a Github account to access the site.</p>
 					</div>
-					<a href="http://localhost:8080/auth/github">
+					<a href="https://boiling-earth-62792.herokuapp.com/auth/github">
 						<button className="btn loginBtn">
 							<i className="fab fa-github"></i> Github
 						</button>
