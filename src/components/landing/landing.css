@@ -66,8 +66,8 @@
     text-align: center;
     padding: 3px;
     border: 1px solid #7d7d7d;
-    width: 250px;
-    height: 250px;
+    width: 235px;
+    height: 235px;
     margin: auto;
     margin-bottom: 20px;
 }
@@ -107,7 +107,7 @@
 
 @media only screen and (min-width: 1000px) {
     .openingGreeting {
-        height: 525px;
+        height: 515px;
         background-position: top;
     }
 }
