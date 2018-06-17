@@ -25,7 +25,8 @@ textarea {
 
 .overlayOutter {
 	position: absolute;
-    top: 0px;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(117, 117, 117, 0.55);
