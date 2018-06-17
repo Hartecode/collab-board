@@ -7,7 +7,7 @@ export default function LandingPage() {
 		<div>
 			<header id="landingHeader" role="banner">
 				<h1 className="logoLanding">CollaBoard</h1>
-		      <nav role="navagation">
+		      <nav>
 		      	<Link id="navLinkLand" to='/login'>		
 	    			Sign Up/Sign In
 	    		</Link>   
