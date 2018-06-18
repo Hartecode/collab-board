@@ -14,7 +14,7 @@ Collab Board is where a user can post a project they are seeking collaboration o
 <img src="screenshots/board.png">
 <h2>DEMO</h2>
 <hr>
-<h3><a href="https://zealous-joliot-ccbd2b.netlify.com/board" target="_blank">Live Demo</a></h3>
+<h3><a href="https://zealous-joliot-ccbd2b.netlify.com" target="_blank">Live Demo</a></h3>
 
 <h2>Technology</h2>
 <hr>
