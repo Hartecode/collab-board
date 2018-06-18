@@ -1,4 +1,4 @@
-<h1>Baby Steps</h1>
+<h1>Collab Board</h1>
 <hr>
 Collab Board is where a user can post a project they are seeking collaboration on and also search for a project where they can be a co-collaborator. The user can deny or approve any requests they receive. The user can also view their owned and collab projects.
 
