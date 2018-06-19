@@ -8,7 +8,7 @@ export function LogOut(props) {
 		<main className="" role='main'>
 			<div className="logoutBox">
 				<h1>Do you want to log out?</h1>
-				<a href="https://boiling-earth-62792.herokuapp.com/logout">
+				<a href="https://boiling-earth-62792.herokuapp.com/auth/logout">
 					<button className="btn logoutBtn">
 						Yes
 					</button>
