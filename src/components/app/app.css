@@ -18,6 +18,7 @@ a:hover {
 }
 
 
+
 /*-----------*/
 
 /*-----------*/
@@ -36,8 +37,8 @@ a:hover {
 
 .btn {
 	cursor: pointer;
-	color: #2828a5;
-	background-color: #ec965f;
+	color: #4cb1a8;
+	background-color: white;
 	outline: none;
     border: none;
     box-shadow: -5px -5px;
@@ -46,13 +47,12 @@ a:hover {
 }
 
 .btn:hover {
-	color: #ec965f;
-	background-color: #2828a5;
-	box-shadow: 5px 5px;
+	color: white;
+	background-color: #4cb1a8;
 }
 
 .btn:active {
-	box-shadow: 1px 1px;
+	background-color: #ec965f;
 }
 
 .submitBtn {

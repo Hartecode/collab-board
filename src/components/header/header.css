@@ -1,6 +1,6 @@
 
 .appHeader {
-  background-color: #2828a5;
+  background-color: #4cb1a8;
   height: 80px;
 }
 
@@ -25,6 +25,10 @@
 
 .navLinkContainer li a:visited, .navLinkContainer li a {
     text-decoration: none;
+    color: white;
+}
+
+.navLinkContainer li a:hover {
     color: #ec965f;
 }
 

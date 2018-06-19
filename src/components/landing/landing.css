@@ -72,6 +72,10 @@
     margin-bottom: 20px;
 }
 
+.descBox:hover {
+    box-shadow: 0 0 3px 1px #7d7d7d;
+}
+
 
 .fa-github.decIcon {
     color: #24292e;
