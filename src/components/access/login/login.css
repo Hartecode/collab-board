@@ -1,8 +1,8 @@
 .loginContainer {
 	height: 100vh;
 	width: 100vw;
-	background-color: black;
-	padding-top: 20px;
+	background-color: #4cb1a8;
+	position: fixed;
 }
 
 .authBox {
@@ -31,3 +31,6 @@
 	padding: 5px;
 }
 
+.demoDirect {
+	color: #ec965f;
+}
