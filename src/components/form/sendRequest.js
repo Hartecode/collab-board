@@ -34,7 +34,7 @@ export default function SendRequestForm(props) {
 			      			I would like to be part of this project.
 						</textarea>
 						<br /><br />
-						<input type="submit" />
+						<input className="btn" type="submit" />
 					</fieldset>
 		      	</form>
 			</div>
