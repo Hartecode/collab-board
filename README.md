@@ -28,7 +28,9 @@ Client Side
 	<li>Webpack</li>
 	<li>Babel</li>
 </ul>
+
 Server Side
+<a href="https://github.com/Hartecode/collab-board-backend" target="_blank">Back-end repo</a>
 <ul>
 	<li>Node.js</li>
 	<li>express</li>
