@@ -15,7 +15,7 @@ export class Dashboard extends React.Component {
 	    this.selectCollabTitle = this.selectCollabTitle.bind(this);
 	}
 	
-	componentDidMount() {
+	componentWillMount() {
 		console.log(this.props);
 		const userID = this.props.match.params.userId;
 		if(userID) {
