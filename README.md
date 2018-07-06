@@ -1,6 +1,6 @@
-<h1>Collab Board</h1>
+<h1>CollaBoard</h1>
 <hr>
-Collab Board is where a user can post a project they are seeking collaboration on and also search for a project where they can be a co-collaborator. The user can deny or approve any requests they receive. The user can also view their owned and collab projects.
+CollaBoard is where a user can post a project they are seeking collaboration on and also search for a project where they can be a co-collaborator. The user can deny or approve any requests they receive. The user can also view their owned and collab projects.
 
 <h2>Screen Shots</h2>
 <hr>
@@ -14,7 +14,7 @@ Collab Board is where a user can post a project they are seeking collaboration o
 <img src="screenshots/board.png">
 <h2>DEMO</h2>
 <hr>
-<h3><a href="https://zealous-joliot-ccbd2b.netlify.com" target="_blank">Live Demo</a></h3>
+<h3><a href="http://www.collaboard.co/" target="_blank">Live Demo</a></h3>
 
 <h2>Technology</h2>
 <hr>
