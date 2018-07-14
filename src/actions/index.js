@@ -64,7 +64,6 @@ export const fetchUserProjects = (userId) => dispatch => {
             return res.json();
         })
         .then(projects => {
-            console.log(projects);
             dispatch(fetchUserProjectsSuccess(projects));
         });
 }; 
@@ -85,7 +84,6 @@ export const fetchUserCollabs = (userId) => dispatch => {
             return res.json();
         })
         .then(projects => {
-            console.log('collabs:' + projects);
             dispatch(fetchUserCollabsSuccess(projects));
         });
 }; 
@@ -235,7 +233,6 @@ export const fetchPostJoin = (data) => dispatch => {
         })
         .then( newRequest => {
             //dispatch the fetch to add the pending request to the selected project
-            console.log(newRequest);
             dispatch(fetchPostPendingRequest(newRequest));
         });
 };
@@ -268,7 +265,6 @@ export const fetchPostPendingRequest = (data) => dispatch => {
             return res.json();
         })
         .then( newRequest => {
-            console.log(newRequest);
             dispatch(fetchPostPendingRequestSuccess(newRequest));
         });
 };
