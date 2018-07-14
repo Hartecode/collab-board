@@ -14,7 +14,6 @@ export class Board extends React.Component {
 
 		const boardList = () => {
 			const repository = this.props.boardRepos;
-			console.log(repository);
 			return repository.map((file, index) => {
 				let repoOwner = file.ownerID;
 				let currentUser = this.props.mainUser.id;

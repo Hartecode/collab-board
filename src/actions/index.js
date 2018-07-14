@@ -38,7 +38,6 @@ export const fetchGithubRepo = (url) => dispatch => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
             }
-            console.log(res);
             return res.json();
         })
         .then( repo => {

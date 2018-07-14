@@ -27,8 +27,7 @@ export class Notice extends React.Component {
 			userID: this.props.requesterId,
 			avatarUrl: this.props.avatarImgUrl
 		}
-
-		console.log(approvedPost);
+		
 		this.props.dispatch(fetchPostApprovedRequest(approvedPost, projectId, requestId));
 		
 		this.setState(prevState => ({

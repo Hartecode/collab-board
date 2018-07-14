@@ -6,7 +6,6 @@ import './profile.css';
 
 
 export default function Profile(props)  {
-	console.log(props.githubLink);
 	return (
 		<div>
 			<section className="profile" role="region">

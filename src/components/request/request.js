@@ -14,7 +14,6 @@ export class Request extends React.Component {
 
 	render() {
 		const requestList = this.props.requests;
-		console.log(requestList);
 		const list = () => {
 			if(requestList.length > 0) {
 				return requestList.map( (obj, index) => 

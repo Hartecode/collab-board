@@ -44,9 +44,6 @@ export default function collabBoardReducer(state = initialState, action) {
         });
     }
     else if (action.type === actions.FETCH_REQUEST_SUCCESS) {
-        console.log(action.requests);
-        console.log('FETCH_REQUEST_SUCCESS: RUNNING');
-
         return Object.assign({}, state, {
             requests: action.requests
         });
@@ -78,7 +75,6 @@ export default function collabBoardReducer(state = initialState, action) {
         });
     }
     else if (action.type === actions.FETCH_POST_PENDING_REQUEST_SUCCESS) {
-        console.log(action.selectedProjectPending);
         const newPendingUser = action.selectedProjectPending;
         // return Object.assign({}, state, {
         //     selectedProject: {

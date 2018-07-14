@@ -16,7 +16,6 @@ export class Dashboard extends React.Component {
 	}
 	
 	componentWillMount() {
-		console.log(this.props);
 		const userID = this.props.match.params.userId;
 		if(userID) {
 			this.props.dispatch(fetchLoginUser(userID));

@@ -28,7 +28,6 @@ export default class UserProfile extends React.Component {
 	}
 	
 	componentDidMount() {
-		console.log(this.props);
 		const userID = this.props.match.params.userId;
 		fetch(`${API_BASE_URL}/api/users/loginuser/${userID}`)
         .then(res => {
@@ -110,7 +109,6 @@ export default class UserProfile extends React.Component {
 
 		const displayUserCollabs = () => {
 			const userCollabs = this.state.userCollabs;
-			console.log(userCollabs)
 			if(userCollabs.length > 0) {
 				return userCollabs.map( project => {
 					let totalOfCollabs = project.collaborators.length;
